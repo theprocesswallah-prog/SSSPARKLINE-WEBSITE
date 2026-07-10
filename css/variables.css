@@ -15,9 +15,9 @@
     --accent-color: #0066FF; /* Easily configurable brand accent */
     
     /* Transparency & Overlay Layers */
-    --bg-navbar-translucent: rgba(255, 255, 255, 0.72);
-    --bg-megamenu-blur: rgba(255, 255, 255, 0.94);
-    --hero-overlay: rgba(29, 29, 31, 0.45); /* Soft darken for maximum readability */
+    --bg-navbar: #FFFFFF;
+    --bg-submenu-blur: rgba(29, 29, 31, 0.85); /* Subtle dark semi-transparent theme */
+    --hero-overlay: rgba(29, 29, 31, 0.45); /* Soft darken for maximum video contrast */
     
     /* Layout Dimensions */
     --max-width: 1200px;
@@ -29,7 +29,7 @@
     --z-hero-content: 2;
     --z-footer: 5;
     --z-header: 100;
-    --z-dropdown: 110;
+    --z-submenu: 90;
     --z-mobile-drawer: 120;
     
     /* Standard Transition Variables */

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Navigation Bar & Mega Menu Elements
+   Navigation Bar & Submenu Strip Elements
    ========================================================================== */
 
 .global-header {
@@ -10,20 +10,17 @@
     height: var(--header-height);
     display: flex;
     align-items: center;
-    background-color: transparent;
-    border-bottom: 1px solid transparent;
+    background-color: var(--bg-primary); /* Permanent Premium White Background */
+    border-bottom: 1px solid var(--border-color); /* Permanent minimal bottom border */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02); /* Soft shadow framework */
     transition: var(--transition-smooth);
     z-index: var(--z-header);
 }
 
-/* Translucent Sticky State Triggered on Scroll */
+/* Header Compact Scroll State */
 .global-header.scrolled {
     height: var(--header-height-scrolled);
-    background-color: var(--bg-navbar-translucent);
-    border-bottom: 1px solid var(--border-color);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.04);
 }
 
 .nav-container {
@@ -43,7 +40,7 @@
     transition: var(--transition-smooth);
 }
 
-/* Gently downscale typography signature on scroll */
+/* Gently scale visual signature on scroll */
 .global-header.scrolled .nav-logo {
     transform: scale(0.92);
 }
@@ -53,12 +50,6 @@
     font-weight: 700;
     letter-spacing: -0.015em;
     color: var(--text-primary);
-}
-
-/* Active top header contrast over dark video background when transparent */
-.global-header:not(.scrolled) .logo-text,
-.global-header:not(.scrolled) .nav-link {
-    color: #FFFFFF;
 }
 
 .nav-links {
@@ -88,84 +79,67 @@
     color: var(--accent-color) !important;
 }
 
-/* Dropdown Wrapper Container placement */
+/* Dropdown Container Element */
 .nav-item-dropdown {
-    position: static; /* Dictates full width positioning for mega menu */
+    position: static; /* Required for full width absolute alignment of submenu */
 }
 
-/* Horizontal Mega Menu Design Mechanics */
-.mega-menu {
+/* Premium Slim Horizontal Submenu Strip */
+.submenu-strip {
     position: absolute;
     top: var(--header-height);
     left: 0;
     width: 100vw;
-    background-color: var(--bg-megamenu-blur);
-    border-bottom: 1px solid var(--border-color);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.03);
-    backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
+    height: 52px; /* Compact height (48px - 56px range) */
+    background-color: var(--bg-submenu-blur);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-8px);
-    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    z-index: var(--z-dropdown);
+    transform: translateY(-5px);
+    transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1), transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: var(--z-submenu);
 }
 
-.global-header.scrolled .mega-menu {
+.global-header.scrolled .submenu-strip {
     top: var(--header-height-scrolled);
 }
 
-/* Hover Interface */
-.nav-item-dropdown:hover .mega-menu {
+/* Display mechanics triggered only on Hover */
+.nav-item-dropdown:hover .submenu-strip {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
 }
 
-.mega-menu-inner {
+.submenu-links {
+    width: 100%;
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 48px 24px;
-}
-
-.mega-menu-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 32px;
-}
-
-.mega-menu-item {
+    padding: 0 24px;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 28px; /* Elegant horizontal spacing */
 }
 
-.mega-menu-link {
-    display: block;
-    padding: 12px;
-    border-radius: 8px;
+.submenu-link {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.75);
+    white-space: nowrap;
     transition: var(--transition-fast);
 }
 
-.mega-menu-link:hover {
-    background-color: var(--bg-secondary);
+.submenu-link:hover {
+    color: #FFFFFF; /* High contrast hover */
 }
 
-.mega-title {
-    display: block;
-    font-size: 0.8125rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 6px;
-}
-
-.mega-desc {
-    display: block;
-    font-size: 0.75rem;
-    line-height: 1.4;
-    color: var(--text-secondary);
-}
-
-/* Nav Action controls & burger menu */
+/* Nav Actions */
 .nav-actions {
     display: flex;
     align-items: center;
@@ -189,10 +163,6 @@
     height: 1.5px;
     background-color: var(--text-primary);
     transition: var(--transition-fast);
-}
-
-.global-header:not(.scrolled) .toggle-bar {
-    background-color: #FFFFFF;
 }
 
 /* Mobile Side Drawer Base Container */

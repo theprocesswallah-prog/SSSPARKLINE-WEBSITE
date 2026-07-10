@@ -30,18 +30,13 @@ class NavigationController {
     handleScroll() {
         if (!this.header) return;
 
-        // Skip translucent processing if the scroll triggers on structural pages (non-index)
-        if (this.header.classList.contains('static-header')) return;
-
         const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
+        // Apply scroll modification classes for header downscaling
         if (currentScroll > this.scrollThreshold) {
             this.header.classList.add('scrolled');
         } else {
-            // Remove state only if mobile drawer is closed to prevent header visibility flash
-            if (!this.mobileDrawer || !this.mobileDrawer.classList.contains('open')) {
-                this.header.classList.remove('scrolled');
-            }
+            this.header.classList.remove('scrolled');
         }
     }
 
@@ -49,13 +44,11 @@ class NavigationController {
         this.mobileToggle.classList.toggle('active');
         this.mobileDrawer.classList.toggle('open');
         
-        // Toggle header scrolled styling class when drawer is open
+        // Lock window scroll mechanics when drawer is initialized
         if (this.mobileDrawer.classList.contains('open')) {
-            this.header.classList.add('scrolled');
-            document.body.style.overflow = 'hidden'; // Lock scrolling
+            document.body.style.overflow = 'hidden';
         } else {
-            this.handleScroll();
-            document.body.style.overflow = ''; // Unlock scrolling
+            document.body.style.overflow = '';
         }
     }
 }

@@ -1,1 +1,21 @@
+/* ==========================================================================
+   Transition, Scroll and Intersection Observer Motion Elements
+   ========================================================================== */
 
+/* Fade-Up Base Initialization State */
+.animate-fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Triggered State */
+.animate-fade-up.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* CSS Transition Speed Helpers */
+.transition-delay-100 { transition-delay: 100ms; }
+.transition-delay-200 { transition-delay: 200ms; }
+.transition-delay-300 { transition-delay: 300ms; }

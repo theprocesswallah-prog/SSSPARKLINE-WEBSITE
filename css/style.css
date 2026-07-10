@@ -1,7 +1,13 @@
-/* ==========================================================================
-   Home Hero Section Styling (Integrated here to avoid multiple single rule files)
-   ========================================================================== */
+@import "./variables.css";
+@import "./layout.css";
+@import "./navigation.css";
+@import "./components.css";
+@import "./animation.css";
+@import "./responsive.css";
 
+/* ==========================================================================
+   Home Hero Section Styling
+   ========================================================================== */
 .hero-section {
     position: relative;
     width: 100%;
@@ -9,8 +15,8 @@
     display: flex;
     align-items: center;
     overflow: hidden;
-    background-color: #000000; /* Prevent flickering on media load */
-    padding-top: var(--header-height); /* Accounts for permanent white header */
+    background-color: #000000;
+    padding-top: var(--header-height);
 }
 
 .hero-video-wrapper {
@@ -28,7 +34,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #111112; /* Dark visual canvas during media load operations */
+    background-color: #111112;
     z-index: 1;
 }
 
@@ -83,7 +89,6 @@
     gap: 16px;
 }
 
-/* Responsive adjustment for small screens */
 @media (max-width: 575px) {
     .hero-title {
         font-size: 2.5rem;

@@ -4,16 +4,15 @@
 
 /* Laptop/Desktop Adaptive Scale Breakpoint */
 @media (max-width: 1199px) {
-    .mega-menu-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 24px;
+    .submenu-links {
+        gap: 20px;
     }
 }
 
 /* Tablet Media Constraint */
 @media (max-width: 991px) {
-    .mega-menu-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .submenu-links {
+        gap: 16px;
     }
     
     .footer-grid {

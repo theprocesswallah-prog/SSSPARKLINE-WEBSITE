@@ -1,1 +1,67 @@
+/* ==========================================================================
+   Viewport Queries (Strict Responsive Breakpoint Schema)
+   ========================================================================== */
 
+/* Laptop/Desktop Adaptive Scale Breakpoint */
+@media (max-width: 1199px) {
+    .mega-menu-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+    }
+}
+
+/* Tablet Media Constraint */
+@media (max-width: 991px) {
+    .mega-menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .footer-brand {
+        grid-column: span 2;
+    }
+}
+
+/* Mobile Screen Breakpoint (Collapse Navigation) */
+@media (max-width: 767px) {
+    .nav-menu {
+        display: none; /* Collapses navigation links list to structural drawers */
+    }
+    
+    .mobile-menu-toggle {
+        display: flex; /* Activates menu trigger */
+    }
+    
+    /* Transform Hamburger Toggle Bars into Close Control State when drawer is open */
+    .mobile-menu-toggle.active .toggle-bar:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+        background-color: var(--text-primary) !important;
+    }
+    
+    .mobile-menu-toggle.active .toggle-bar:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .mobile-menu-toggle.active .toggle-bar:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+        background-color: var(--text-primary) !important;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+    
+    .footer-brand {
+        grid-column: span 1;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+    }
+}

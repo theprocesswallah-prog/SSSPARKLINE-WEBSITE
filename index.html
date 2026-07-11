@@ -6,15 +6,14 @@
     <meta name="description" content="Shiv Shiv Sparkline — Fast-growing enterprise specializing in Electrical Trading, Solar Solutions, EPC Projects, and Procurement Services.">
     <title>Shiv Shiv Sparkline | Electrical Trading & Solar Solutions</title>
     <!-- Core Style Sheet Interface -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
 
-    <!-- Global Navigation Header Interface -->
+    <!-- Global Navigation Header Interface (Starts transparent on Home Page) -->
     <header class="global-header" id="global-header">
         <div class="nav-container">
             <a href="index.html" class="nav-logo" id="nav-logo" aria-label="Shiv Shiv Sparkline Home">
-                <!-- Accommodates typographic branding or future graphic logo assets -->
                 <span class="logo-text">Shiv Shiv Sparkline</span>
             </a>
             
@@ -67,13 +66,16 @@
 
     <!-- Core Page Flow -->
     <main>
-        <!-- Hero Section with Background Video -->
+        <!-- Hero Section with Reusable Background Video Component -->
         <section class="hero-section" id="home-hero">
             <div class="hero-video-wrapper">
+                <!-- CSS Fallback Background Gradient -->
                 <div class="hero-video-fallback"></div>
-                <video class="hero-video-element" autoplay muted loop playsinline poster="assets/images/hero-poster.jpg">
-                    <source src="assets/videos/hero-background.mp4" type="video/mp4">
+                <!-- HTML5 Native Preloaded High-Performance Video Element -->
+                <video class="hero-video-element" autoplay muted loop playsinline preload="metadata">
+                    <source src="assets/videos/hero-video.mp4" type="video/mp4">
                 </video>
+                <!-- Subtle Dark Overlay for Maximum Typography Contrast (Opacity 0.25) -->
                 <div class="hero-overlay"></div>
             </div>
             
@@ -88,10 +90,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- Future Sections Placeholder -->
-        <!-- <!-- Future Section: Core Offerings --> -->
-        <!-- <!-- Future Section: Our Commitment --> -->
     </main>
 
     <!-- Global Footer Interface -->

@@ -8,6 +8,7 @@
 /* ==========================================================================
    Home Hero Section Styling
    ========================================================================== */
+
 .hero-section {
     position: relative;
     width: 100%;
@@ -15,8 +16,7 @@
     display: flex;
     align-items: center;
     overflow: hidden;
-    background-color: #000000;
-    padding-top: var(--header-height);
+    background-color: #111112; /* Fallback baseline dark color */
 }
 
 .hero-video-wrapper {
@@ -28,6 +28,7 @@
     z-index: var(--z-hero-media);
 }
 
+/* Ambient Radial CSS Fallback Graphic (Loads before, or in place of, active video states) */
 .hero-video-fallback {
     position: absolute;
     top: 0;
@@ -35,23 +36,30 @@
     width: 100%;
     height: 100%;
     background-color: #111112;
+    background-image: radial-gradient(circle at 50% 50%, #1e1e21 0%, #111112 100%);
     z-index: 1;
 }
 
+/* Perfect cover fitting on all screen configurations (no margins, black borders, or distortion) */
 .hero-video-element {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     z-index: 2;
 }
 
+/* Subtle Overlay Layer for Readability (Strictly constrained within 0.20-0.30 opacity parameters) */
 .hero-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--hero-overlay);
+    background-color: rgba(29, 29, 31, 0.25);
     z-index: 3;
 }
 

@@ -10,17 +10,55 @@
     height: var(--header-height);
     display: flex;
     align-items: center;
-    background-color: var(--bg-primary); /* Permanent Premium White Background */
-    border-bottom: 1px solid var(--border-color); /* Permanent minimal bottom border */
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02); /* Soft shadow framework */
+    background-color: transparent; /* Transparent over Hero Video */
+    border-bottom: 1px solid transparent;
     transition: var(--transition-smooth);
     z-index: var(--z-header);
 }
 
-/* Header Compact Scroll State */
+/* White elements when transparent over dark video hero overlay */
+.global-header:not(.scrolled):not(.static-header) .logo-text,
+.global-header:not(.scrolled):not(.static-header) .nav-link {
+    color: #FFFFFF;
+}
+
+.global-header:not(.scrolled):not(.static-header) .toggle-bar {
+    background-color: #FFFFFF;
+}
+
+/* Translucent Sticky State Triggered on Scroll */
 .global-header.scrolled {
     height: var(--header-height-scrolled);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.04);
+    background-color: var(--bg-navbar);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.global-header.scrolled .logo-text,
+.global-header.scrolled .nav-link {
+    color: var(--text-primary);
+}
+
+.global-header.scrolled .toggle-bar {
+    background-color: var(--text-primary);
+}
+
+/* Static fallback configuration for internal pages without Hero Canvas */
+.global-header.static-header {
+    background-color: var(--bg-primary);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
+}
+
+.global-header.static-header .logo-text,
+.global-header.static-header .nav-link {
+    color: var(--text-primary);
+}
+
+.global-header.static-header .toggle-bar {
+    background-color: var(--text-primary);
 }
 
 .nav-container {
@@ -40,7 +78,7 @@
     transition: var(--transition-smooth);
 }
 
-/* Gently scale visual signature on scroll */
+/* Scale visual branding signature on active scroll state */
 .global-header.scrolled .nav-logo {
     transform: scale(0.92);
 }
@@ -49,7 +87,7 @@
     font-size: 1.125rem;
     font-weight: 700;
     letter-spacing: -0.015em;
-    color: var(--text-primary);
+    transition: var(--transition-fast);
 }
 
 .nav-links {
@@ -61,7 +99,6 @@
 .nav-link {
     font-size: 0.8125rem;
     font-weight: 500;
-    color: var(--text-primary);
     opacity: 0.85;
     cursor: pointer;
     display: flex;
@@ -81,7 +118,7 @@
 
 /* Dropdown Container Element */
 .nav-item-dropdown {
-    position: static; /* Required for full width absolute alignment of submenu */
+    position: static;
 }
 
 /* Premium Slim Horizontal Submenu Strip */
@@ -90,7 +127,7 @@
     top: var(--header-height);
     left: 0;
     width: 100vw;
-    height: 52px; /* Compact height (48px - 56px range) */
+    height: 52px;
     background-color: var(--bg-submenu-blur);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(12px);
@@ -109,7 +146,7 @@
     top: var(--header-height-scrolled);
 }
 
-/* Display mechanics triggered only on Hover */
+/* Hover-triggered behavior */
 .nav-item-dropdown:hover .submenu-strip {
     opacity: 1;
     visibility: visible;
@@ -124,7 +161,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 28px; /* Elegant horizontal spacing */
+    gap: 28px;
 }
 
 .submenu-link {
@@ -136,7 +173,7 @@
 }
 
 .submenu-link:hover {
-    color: #FFFFFF; /* High contrast hover */
+    color: #FFFFFF;
 }
 
 /* Nav Actions */
@@ -161,7 +198,6 @@
 .toggle-bar {
     width: 100%;
     height: 1.5px;
-    background-color: var(--text-primary);
     transition: var(--transition-fast);
 }
 

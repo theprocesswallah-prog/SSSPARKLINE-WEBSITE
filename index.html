@@ -10,7 +10,7 @@
 </head>
 <body>
 
-    <!-- Global Navigation Header Interface (Starts transparent on Home Page) -->
+    <!-- Global Navigation Header Interface -->
     <header class="global-header" id="global-header">
         <div class="nav-container">
             <a href="index.html" class="nav-logo" id="nav-logo" aria-label="Shiv Shiv Sparkline Home">
@@ -66,13 +66,13 @@
 
     <!-- Core Page Flow -->
     <main>
-        <!-- Hero Section with Reusable Background Video Component -->
+        <!-- Hero Section with Background Video Component -->
         <section class="hero-section" id="home-hero">
             <div class="hero-video-wrapper">
                 <!-- CSS Fallback Background Gradient -->
                 <div class="hero-video-fallback"></div>
-                <!-- HTML5 Native Preloaded High-Performance Video Element -->
-                <video class="hero-video-element" autoplay muted loop playsinline preload="metadata">
+                <!-- HTML5 Video Component configured to preload dynamically for autoplay -->
+                <video class="hero-video-element" autoplay muted loop playsinline preload="auto">
                     <source src="assets/videos/hero-video.mp4" type="video/mp4">
                 </video>
                 <!-- Subtle Dark Overlay for Maximum Typography Contrast (Opacity 0.25) -->

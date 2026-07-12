@@ -2,11 +2,12 @@
    Transition, Scroll and Intersection Observer Motion Elements
    ========================================================================== */
 
-/* Page-depth dynamic reveal triggers */
+/* Page-depth dynamic reveal triggers (Tuned to minimal 12px offsets & 800ms easing) */
 .animate-fade-up {
     opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    transform: translateY(12px); /* Subtly scale visual displacement to 12px for high-end feel */
+    transition: opacity 800ms cubic-bezier(0.16, 1, 0.3, 1), transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform; /* Force system GPU acceleration */
 }
 
 .animate-fade-up.active {

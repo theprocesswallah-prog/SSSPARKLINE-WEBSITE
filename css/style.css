@@ -214,28 +214,574 @@
     100% { transform: scaleY(0); transform-origin: bottom; }
 }
 
-/* Clean Responsive Spacing Scaling */
-@media (max-width: 767px) {
-    .hero-title {
-        font-size: 2.75rem;
-        margin-bottom: 12px;
+/* ==========================================================================
+   About Us Specific Subpage Modular Layout Elements
+   ========================================================================== */
+
+.border-top {
+    border-top: 1px solid var(--border-color);
+}
+
+.about-hero {
+    padding: 120px 0 60px 0;
+}
+
+.about-category-stamp {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent-color);
+    margin-bottom: 16px;
+}
+
+.about-hero-lead {
+    font-size: 1.375rem;
+    line-height: 1.5;
+    font-weight: 400;
+    color: var(--text-secondary);
+    max-width: 800px;
+    margin-top: 16px;
+}
+
+.section-label-minimal {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+}
+
+.about-section-heading {
+    font-size: 2.25rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 48px;
+}
+
+/* Symmetrical 2-Column Text Spacing */
+.two-column-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 64px;
+    align-items: start;
+}
+
+.about-body-highlight {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+    font-weight: 500;
+    margin-bottom: 24px;
+}
+
+.about-sub-label {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+}
+
+.about-bullet-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.about-bullet-list li {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    position: relative;
+    padding-left: 20px;
+    line-height: 1.5;
+}
+
+.about-bullet-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 6px;
+    height: 1px;
+    background-color: var(--text-secondary);
+}
+
+/* Symmetrical Vision & Mission layouts */
+.card-grid-symmetrical {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+.about-premium-card {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.015);
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.card-badge-accent {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    padding: 6px 12px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+}
+
+.card-lead-text {
+    font-size: 1.1875rem;
+    line-height: 1.55;
+    color: var(--text-primary);
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.card-supporting-text {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+.card-footer-list {
+    margin-top: 32px;
+    width: 100%;
+}
+
+.list-heading {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 8px;
+}
+
+/* Symmetrical Founder Card block layout */
+.founder-card {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 48px;
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 48px;
+    align-items: start;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.01);
+}
+
+.founder-photo-wrapper {
+    width: 240px;
+    height: 280px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.founder-photo-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(135deg, var(--bg-secondary) 0%, rgba(229, 229, 231, 0.5) 100%);
+    position: relative;
+}
+
+.placeholder-avatar-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+.placeholder-avatar-icon::after {
+    content: "";
+    position: absolute;
+    bottom: -16px;
+    left: -12px;
+    width: 72px;
+    height: 24px;
+    border-radius: 24px 24px 0 0;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.founder-details-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.founder-badge {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent-color);
+    margin-bottom: 12px;
+}
+
+.founder-name {
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    margin-bottom: 4px;
+}
+
+.founder-title {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+}
+
+.founder-bio {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+/* Dynamic Core Services interactive layout blocks */
+.services-columns-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+.service-block-card {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.01);
+}
+
+.service-index {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.08);
+    display: block;
+    margin-bottom: 20px;
+}
+
+.service-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin-bottom: 12px;
+}
+
+.service-desc {
+    font-size: 0.875rem;
+    line-height: 1.55;
+    color: var(--text-secondary);
+}
+
+/* Native accessible interactive summary expansions */
+details.service-details {
+    width: 100%;
+    margin-top: 16px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 16px;
+}
+
+details.service-details summary {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+}
+
+details.service-details summary::-webkit-details-marker {
+    display: none; /* Hide default iOS markers */
+}
+
+details.service-details summary::after {
+    content: "+";
+    font-size: 1rem;
+    font-weight: 400;
+    transition: transform 0.25s ease;
+}
+
+details.service-details[open] summary::after {
+    transform: rotate(45deg);
+}
+
+.service-expanded-content {
+    margin-top: 16px;
+    width: 100%;
+    animation: fade-up-subtle 0.3s ease-out;
+}
+
+@keyframes fade-up-subtle {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Symmetrical Advantages grid */
+.advantages-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.advantage-card {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.005);
+}
+
+.advantage-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.advantage-text {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+}
+
+/* Symmetrical Compliance placeholders */
+.certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.cert-card {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.005);
+}
+
+.cert-icon-wrapper {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: var(--bg-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.doc-icon {
+    width: 14px;
+    height: 18px;
+    border: 1.5px solid var(--text-secondary);
+    border-radius: 2px;
+    position: relative;
+}
+
+.doc-icon::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 2px;
+    width: 6px;
+    height: 1.5px;
+    background-color: var(--text-secondary);
+    box-shadow: 0 3px 0 var(--text-secondary), 0 6px 0 var(--text-secondary);
+}
+
+.cert-title {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.cert-meta {
+    font-size: 0.75rem;
+    line-height: 1.4;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+}
+
+.cert-status-badge {
+    font-size: 0.625rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    background-color: rgba(229, 229, 231, 0.6);
+    color: var(--text-secondary);
+    padding: 4px 8px;
+    border-radius: 8px;
+}
+
+/* Symmetrical timeline architecture */
+.timeline-container {
+    position: relative;
+    max-width: 800px;
+    margin: 48px auto 0 auto;
+    padding-left: 32px;
+}
+
+.timeline-track {
+    position: absolute;
+    left: 0;
+    top: 8px;
+    bottom: 8px;
+    width: 1px;
+    background-color: var(--border-color);
+}
+
+.timeline-block {
+    position: relative;
+    margin-bottom: 56px;
+}
+
+.timeline-block:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -36.5px; /* Offset alignment directly over the 1px track line */
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--bg-primary);
+    border: 2px solid var(--accent-color);
+}
+
+.timeline-content {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.timeline-item-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.timeline-item-desc {
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: var(--text-secondary);
+}
+
+/* Symmetrical CTA card layout block */
+.about-cta-card {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 64px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.01);
+}
+
+.cta-card-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    margin-bottom: 12px;
+}
+
+.cta-card-desc {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    max-width: 520px;
+    margin-bottom: 32px;
+}
+
+/* Clean Responsive Scaling Utilities */
+@media (max-width: 1024px) {
+    .services-columns-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .two-column-layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
     }
     
-    .hero-category {
-        margin-bottom: 10px;
+    .card-grid-symmetrical {
+        grid-template-columns: 1fr;
+        gap: 24px;
     }
     
-    .hero-subtitle {
-        font-size: 1rem;
-        margin-bottom: 32px;
+    .founder-card {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 32px;
     }
     
-    .hero-button-group {
-        flex-direction: column;
-        align-items: stretch;
+    .founder-photo-wrapper {
+        width: 100%;
+        max-width: 240px;
+        height: 280px;
     }
     
-    .scroll-indicator {
-        bottom: 20px;
+    .services-columns-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .advantages-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .certifications-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .about-cta-card {
+        padding: 48px 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .certifications-grid {
+        grid-template-columns: 1fr;
     }
 }

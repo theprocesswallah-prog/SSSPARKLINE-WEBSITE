@@ -1,16 +1,16 @@
 /**
  * ==========================================================================
- * Intersection Observer Animation Orchestrator
+ * Advanced Staggered Section Reveals (Intersection Observer)
  * ==========================================================================
  */
 
-class AnimationController {
+class AdvancedAnimationController {
     constructor() {
-        this.animationTargets = document.querySelectorAll('.animate-on-scroll, .animate-fade-up');
+        this.sections = document.querySelectorAll('section');
         this.observerOptions = {
-            root: null, // Default to browser viewport boundary
-            rootMargin: '0px 0px -8% 0px', // Soft offset trigger just before elements enter view frame
-            threshold: 0.1 // Minimum 10% element spatial visibility required to fire
+            root: null, // Relative to browser viewport boundary
+            rootMargin: '0px 0px -12% 0px', // Precise offset to trigger just before entering frames
+            threshold: 0.15 // Minimum 15% section visibility required to fire
         };
 
         this.init();
@@ -28,18 +28,30 @@ class AnimationController {
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target); // Unbind cleanly to prevent multiple animation triggers
+                    entry.target.classList.add('section-active');
+                    
+                    // Discover all animating elements within the active section
+                    const animatableElements = entry.target.querySelectorAll('.animate-fade-up');
+                    
+                    // Trigger elements sequentially with progressive staggered delay intervals (100ms)
+                    animatableElements.forEach((el, index) => {
+                        setTimeout(() => {
+                            el.classList.add('active');
+                        }, index * 100);
+                    });
+                    
+                    observer.unobserve(entry.target); // Unbind clean to maintain high fps rendering
                 }
             });
         }, this.observerOptions);
 
-        this.animationTargets.forEach(target => observer.observe(target));
+        this.sections.forEach(section => observer.observe(section));
     }
 
     fallbackImmediateReveal() {
-        this.animationTargets.forEach(target => target.classList.add('active'));
+        document.querySelectorAll('.animate-fade-up').forEach(el => el.classList.add('active'));
     }
 }
 
-window.Animations = new AnimationController();
+// Instantiate globally on compile window context
+window.Animations = new AdvancedAnimationController();

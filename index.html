@@ -10,8 +10,8 @@
 </head>
 <body>
 
-    <!-- Global Navigation Header Interface -->
-    <header class="global-header" id="global-header">
+    <!-- Global Navigation Header Interface (Sequenced via animate-header) -->
+    <header class="global-header animate-header" id="global-header">
         <div class="nav-container">
             <a href="index.html" class="nav-logo" id="nav-logo" aria-label="Shiv Shiv Sparkline Home">
                 <span class="logo-text">Shiv Shiv Sparkline</span>
@@ -66,28 +66,36 @@
 
     <!-- Core Page Flow -->
     <main>
-        <!-- Hero Section with Background Video Component -->
+        <!-- Hero Section with refined layout properties -->
         <section class="hero-section" id="home-hero">
             <div class="hero-video-wrapper">
                 <!-- CSS Fallback Background Gradient -->
                 <div class="hero-video-fallback"></div>
-                <!-- HTML5 Video Component configured to preload dynamically for autoplay -->
+                <!-- HTML5 Video Component with 70% dynamic offset centering -->
                 <video class="hero-video-element" autoplay muted loop playsinline preload="auto">
                     <source src="assets/videos/hero-video.mp4" type="video/mp4">
                 </video>
-                <!-- Subtle Dark Overlay for Maximum Typography Contrast (Opacity 0.25) -->
+                <!-- Directional Left-to-Right Ambient Readability Overlay -->
                 <div class="hero-overlay"></div>
             </div>
             
             <div class="hero-content container">
-                <div class="hero-text-block animate-fade-up">
-                    <h1 class="hero-title">Shiv Shiv Sparkline</h1>
-                    <p class="hero-subtitle">Electrical Trading, Solar Solutions, EPC Projects, and Procurement Services.</p>
-                    <div class="hero-button-group">
-                        <a href="products.html" class="btn btn-primary">Explore Products</a>
-                        <a href="contact.html" class="btn btn-secondary">Request Quote</a>
+                <!-- Constrained Content Container with Strict Spacing Hierarchy -->
+                <div class="hero-text-block">
+                    <span class="hero-category animate-label">01 / Electrical & Solar Infrastructure</span>
+                    <h1 class="hero-title animate-heading">Shiv Shiv Sparkline</h1>
+                    <p class="hero-subtitle animate-subtitle">Providing reliable electrical trading and solar solutions designed to meet evolving industry demands with precision and dependability.</p>
+                    <div class="hero-button-group animate-buttons">
+                        <a href="products.html" class="btn btn-hero-primary">Explore Products</a>
+                        <a href="contact.html" class="btn btn-hero-secondary">Request Quote</a>
                     </div>
                 </div>
+            </div>
+
+            <!-- Minimal Scroll Down Indicator Component -->
+            <div class="scroll-indicator">
+                <span class="scroll-text">Scroll</span>
+                <span class="scroll-line"></span>
             </div>
         </section>
     </main>

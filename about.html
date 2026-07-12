@@ -3,26 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Shiv Shiv Sparkline — Fast-growing enterprise specializing in Electrical Trading, Solar Solutions, EPC Projects, and Procurement Services.">
-    <title>Shiv Shiv Sparkline | Electrical Trading & Solar Solutions</title>
+    <meta name="description" content="About Shiv Shiv Sparkline - Learn about our commitment, core services, and values as a trusted electrical trading and solar solutions partner.">
+    <title>About Us | Shiv Shiv Sparkline</title>
     <!-- Core Style Sheet Interface -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
 
-    <!-- Global Navigation Header Interface -->
-    <header class="global-header" id="global-header">
+    <!-- Global Navigation Header Interface (Permanent Solid White Header on Subpages) -->
+    <header class="global-header static-header" id="global-header">
         <div class="nav-container">
             <a href="index.html" class="nav-logo" id="nav-logo" aria-label="Shiv Shiv Sparkline Home">
-                <!-- Accommodates typographic branding or future graphic logo assets -->
                 <span class="logo-text">Shiv Shiv Sparkline</span>
             </a>
             
             <nav class="nav-menu" id="nav-menu">
                 <ul class="nav-links">
-                    <li><a href="index.html" class="nav-link active">Home</a></li>
+                    <li><a href="index.html" class="nav-link">Home</a></li>
                     <li class="nav-item-dropdown">
-                        <span class="nav-link dropdown-trigger" tabindex="0">About Us</span>
+                        <span class="nav-link dropdown-trigger active" tabindex="0">About Us</span>
                         <!-- Premium Slim Horizontal Submenu Strip -->
                         <div class="submenu-strip">
                             <div class="submenu-links">
@@ -56,8 +55,8 @@
     <!-- Mobile Navigation Drawer Interface -->
     <div class="mobile-drawer" id="mobile-drawer">
         <ul class="mobile-drawer-links">
-            <li><a href="index.html" class="mobile-link active">Home</a></li>
-            <li><a href="about.html" class="mobile-link">About Us</a></li>
+            <li><a href="index.html" class="mobile-link">Home</a></li>
+            <li><a href="about.html" class="mobile-link active">About Us</a></li>
             <li><a href="products.html" class="mobile-link">Products</a></li>
             <li><a href="projects.html" class="mobile-link">Solutions & Projects</a></li>
             <li><a href="contact.html" class="mobile-link">Reach Us</a></li>
@@ -66,32 +65,335 @@
     </div>
 
     <!-- Core Page Flow -->
-    <main>
-        <!-- Hero Section with Background Video -->
-        <section class="hero-section" id="home-hero">
-            <div class="hero-video-wrapper">
-                <div class="hero-video-fallback"></div>
-                <video class="hero-video-element" autoplay muted loop playsinline poster="assets/images/hero-poster.jpg">
-                    <source src="assets/videos/hero-background.mp4" type="video/mp4">
-                </video>
-                <div class="hero-overlay"></div>
+    <main class="page-container">
+
+        <!-- Section 1: Mini Hero -->
+        <section class="about-hero animate-fade-up">
+            <div class="container">
+                <span class="about-category-stamp">Establishment & Philosophy</span>
+                <h1 class="page-title">About Our Enterprise</h1>
+                <p class="about-hero-lead">Backed by industry knowledge and a commitment to excellence, Shiv Shiv Sparkline delivers efficient procurement and project support solutions.</p>
             </div>
-            
-            <div class="hero-content container">
-                <div class="hero-text-block animate-fade-up">
-                    <h1 class="hero-title">Shiv Shiv Sparkline</h1>
-                    <p class="hero-subtitle">Electrical Trading, Solar Solutions, EPC Projects, and Procurement Services.</p>
-                    <div class="hero-button-group">
-                        <a href="products.html" class="btn btn-primary">Explore Products</a>
-                        <a href="contact.html" class="btn btn-secondary">Request Quote</a>
+        </section>
+
+        <!-- Section 2: Who We Are -->
+        <section class="section border-top" id="company-profile">
+            <div class="container">
+                <span class="section-label-minimal">01 / Profile</span>
+                <h2 class="about-section-heading">Who We Are</h2>
+                <div class="two-column-layout">
+                    <div class="layout-col animate-fade-up">
+                        <p class="about-body-highlight">Shiv Shiv Sparkline is a fast-growing company specializing in Electrical Trading, Solar Solutions, EPC Projects, and Procurement Services.</p>
+                        <p>We provide reliable and cost-effective solutions for the power and infrastructure sector, serving industrial clients, contractors, and utility projects with quality products and professional support.</p>
+                    </div>
+                    <div class="layout-col animate-fade-up transition-delay-100">
+                        <p class="about-sub-label">Our Key Offerings</p>
+                        <ul class="about-bullet-list">
+                            <li>Power Cables</li>
+                            <li>Connectors</li>
+                            <li>Insulators</li>
+                            <li>Conductors</li>
+                            <li>Metering Solutions</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Future Sections Placeholder -->
-        <!-- <!-- Future Section: Core Offerings --> -->
-        <!-- <!-- Future Section: Our Commitment --> -->
+        <!-- Section 3: Founder -->
+        <section class="section border-top bg-secondary" id="founder">
+            <div class="container">
+                <span class="section-label-minimal">02 / Leadership</span>
+                <h2 class="about-section-heading">Founder Profile</h2>
+                <div class="founder-card animate-fade-up">
+                    <div class="founder-photo-wrapper">
+                        <!-- Elegant abstract user graphic used as a fallback profile placeholder -->
+                        <div class="founder-photo-placeholder">
+                            <span class="placeholder-avatar-icon"></span>
+                        </div>
+                    </div>
+                    <div class="founder-details-wrapper">
+                        <span class="founder-badge">Leadership</span>
+                        <h3 class="founder-name">[Founder Name - Placeholder]</h3>
+                        <p class="founder-title">Founder & Managing Director</p>
+                        <p class="founder-bio">Founder information will be updated soon. Shiv Shiv Sparkline is built on uncompromised procurement standards, operating under strict managerial supervision to coordinate quality industrial assets.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Vision & Mission -->
+        <section class="section border-top" id="vision-mission">
+            <div class="container">
+                <span class="section-label-minimal">03 / Purpose</span>
+                <h2 class="about-section-heading">Vision & Mission</h2>
+                <div class="card-grid-symmetrical">
+                    <!-- Mission Card -->
+                    <div class="about-premium-card animate-fade-up">
+                        <span class="card-badge-accent">Our Mission</span>
+                        <p class="card-lead-text">At Shiv Shiv Sparkline, our mission is to provide reliable and efficient solutions in Electrical Trading, Solar Solutions, EPC Projects, and Procurement Services.</p>
+                        <p class="card-supporting-text">We are committed to supplying quality electrical and power infrastructure materials that support industrial, commercial, and energy projects with performance, safety, and dependability.</p>
+                        <div class="card-footer-list">
+                            <span class="list-heading">Strategic Objectives</span>
+                            <ul class="about-bullet-list">
+                                <li>Building Long-Term Relationships</li>
+                                <li>On-Time Delivery</li>
+                                <li>Trusted Sourcing</li>
+                                <li>Uncompromised Standards</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Vision Card -->
+                    <div class="about-premium-card animate-fade-up transition-delay-100">
+                        <span class="card-badge-accent">Our Vision</span>
+                        <p class="card-lead-text">Our vision is to become a trusted and recognized name in the electrical and energy sector by delivering innovative, sustainable, and value-driven solutions.</p>
+                        <div class="card-footer-list" style="margin-top: auto; padding-top: 40px;">
+                            <span class="list-heading">Future Outlook</span>
+                            <ul class="about-bullet-list">
+                                <li>Modern Infrastructure Support</li>
+                                <li>Smarter Energy Future</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Core Services -->
+        <section class="section border-top bg-secondary" id="core-services">
+            <div class="container">
+                <span class="section-label-minimal">04 / Scope</span>
+                <h2 class="about-section-heading">Our Core Services</h2>
+                <div class="services-columns-grid">
+                    <!-- Card 1: Electrical Trading Solutions -->
+                    <div class="service-block-card animate-fade-up">
+                        <span class="service-index">01</span>
+                        <h3 class="service-title">Electrical Trading Solutions</h3>
+                        <p class="service-desc">Providing certified, high-grade structural components for modern electrical utility distribution grids.</p>
+                        <details class="service-details">
+                            <summary>Material Specifications</summary>
+                            <div class="service-expanded-content">
+                                <ul class="about-bullet-list">
+                                    <li>Power Cables</li>
+                                    <li>Connectors</li>
+                                    <li>Conductors</li>
+                                    <li>Insulators</li>
+                                    <li>Meters</li>
+                                    <li>VCB (Vacuum Circuit Breakers)</li>
+                                    <li>Meter Box</li>
+                                </ul>
+                            </div>
+                        </details>
+                    </div>
+                    <!-- Card 2: Solar Solutions -->
+                    <div class="service-block-card animate-fade-up transition-delay-100">
+                        <span class="service-index">02</span>
+                        <h3 class="service-title">Solar Solutions</h3>
+                        <p class="service-desc">Supplying customized industrial material procurement pathways to facilitate renewable transitions.</p>
+                        <details class="service-details">
+                            <summary>System Specifications</summary>
+                            <div class="service-expanded-content">
+                                <ul class="about-bullet-list">
+                                    <li>Solar Project Support</li>
+                                    <li>Solar Infrastructure Supply</li>
+                                    <li>Rooftop & Industrial Solar Material Procurement</li>
+                                    <li>Energy-Efficient Power Solutions</li>
+                                </ul>
+                            </div>
+                        </details>
+                    </div>
+                    <!-- Card 3: EPC Project Support -->
+                    <div class="service-block-card animate-fade-up transition-delay-200">
+                        <span class="service-index">03</span>
+                        <h3 class="service-title">EPC Project Support</h3>
+                        <p class="service-desc">Coordinating on-site material logistics and vendor processes for commercial engineering projects.</p>
+                        <details class="service-details">
+                            <summary>Support Specifications</summary>
+                            <div class="service-expanded-content">
+                                <ul class="about-bullet-list">
+                                    <li>Electrical Infrastructure Assistance</li>
+                                    <li>Material Coordination & Vendor Support</li>
+                                    <li>Project-Based Electrical Supply Solutions</li>
+                                    <li>Site Requirement Fulfillment</li>
+                                </ul>
+                            </div>
+                        </details>
+                    </div>
+                    <!-- Card 4: EPC Procurement Services -->
+                    <div class="service-block-card animate-fade-up">
+                        <span class="service-index">04</span>
+                        <h3 class="service-title">EPC Procurement Services</h3>
+                        <p class="service-desc">Directing supply chains with uncompromised quality standards for utility and industrial operators.</p>
+                        <details class="service-details">
+                            <summary>Target Segments</summary>
+                            <div class="service-expanded-content">
+                                <ul class="about-bullet-list">
+                                    <li>Industrial Projects</li>
+                                    <li>Utility & Infrastructure Works</li>
+                                    <li>Electrical Contractors & EPC Companies</li>
+                                </ul>
+                            </div>
+                        </details>
+                    </div>
+                    <!-- Card 5: Supply & Distribution Network -->
+                    <div class="service-block-card animate-fade-up transition-delay-100">
+                        <span class="service-index">05</span>
+                        <h3 class="service-title">Supply & Distribution Network</h3>
+                        <p class="service-desc">Ensuring timely distribution across Rajasthan with professional on-site coordination.</p>
+                        <details class="service-details">
+                            <summary>Network Details</summary>
+                            <div class="service-expanded-content">
+                                <p>Efficient and timely material supply across Rajasthan with a focus on quality, reliability, and professional coordination.</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Why Choose Us -->
+        <section class="section border-top" id="why-choose-us">
+            <div class="container">
+                <span class="section-label-minimal">05 / Advantages</span>
+                <h2 class="about-section-heading">Why Choose Us</h2>
+                <div class="advantages-grid">
+                    <div class="advantage-card animate-fade-up">
+                        <h3 class="advantage-title">Reliable Partner</h3>
+                        <p class="advantage-text">A dependable procurement partner for modern infrastructure operations.</p>
+                    </div>
+                    <div class="advantage-card animate-fade-up transition-delay-100">
+                        <h3 class="advantage-title">Quality Assurance</h3>
+                        <p class="advantage-text">Uncompromised product standards sourced strictly from certified vendors.</p>
+                    </div>
+                    <div class="advantage-card animate-fade-up transition-delay-200">
+                        <h3 class="advantage-title">Customer First</h3>
+                        <p class="advantage-text">Dedicated professional support matching specific project specifications.</p>
+                    </div>
+                    <div class="advantage-card animate-fade-up">
+                        <h3 class="advantage-title">Prompt Service</h3>
+                        <p class="advantage-text">Fast response times and efficient on-time logistical supply frameworks.</p>
+                    </div>
+                    <div class="advantage-card animate-fade-up transition-delay-100">
+                        <h3 class="advantage-title">Growing Reach</h3>
+                        <p class="advantage-text">Expanding distribution capabilities to reach active sites across Rajasthan.</p>
+                    </div>
+                    <div class="advantage-card animate-fade-up transition-delay-200">
+                        <h3 class="advantage-title">Industry Expertise</h3>
+                        <p class="advantage-text">Leveraging professional knowledge to fulfill evolving power sector demands.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: Certifications -->
+        <section class="section border-top bg-secondary" id="certifications">
+            <div class="container">
+                <span class="section-label-minimal">06 / Compliance</span>
+                <h2 class="about-section-heading">Certifications</h2>
+                <div class="certifications-grid">
+                    <!-- GST -->
+                    <div class="cert-card animate-fade-up">
+                        <div class="cert-icon-wrapper">
+                            <span class="doc-icon"></span>
+                        </div>
+                        <h3 class="cert-title">GST Registration</h3>
+                        <p class="cert-meta">Official tax verification certificate.</p>
+                        <span class="cert-status-badge">Upload Pending</span>
+                    </div>
+                    <!-- MSME -->
+                    <div class="cert-card animate-fade-up transition-delay-100">
+                        <div class="cert-icon-wrapper">
+                            <span class="doc-icon"></span>
+                        </div>
+                        <h3 class="cert-title">MSME Registration</h3>
+                        <p class="cert-meta">Enterprise micro-business registration.</p>
+                        <span class="cert-status-badge">Upload Pending</span>
+                    </div>
+                    <!-- Company Profile -->
+                    <div class="cert-card animate-fade-up transition-delay-200">
+                        <div class="cert-icon-wrapper">
+                            <span class="doc-icon"></span>
+                        </div>
+                        <h3 class="cert-title">Company Profile</h3>
+                        <p class="cert-meta">Corporate portfolio document.</p>
+                        <span class="cert-status-badge">Upload Pending</span>
+                    </div>
+                    <!-- Future Docs -->
+                    <div class="cert-card animate-fade-up">
+                        <div class="cert-icon-wrapper">
+                            <span class="doc-icon"></span>
+                        </div>
+                        <h3 class="cert-title">Future Certifications</h3>
+                        <p class="cert-meta">Additional regulatory compliance documents.</p>
+                        <span class="cert-status-badge">Upload Pending</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 8: Company Journey -->
+        <section class="section border-top" id="success-story">
+            <div class="container">
+                <span class="section-label-minimal">07 / Milestones</span>
+                <h2 class="about-section-heading">Company Journey</h2>
+                <div class="timeline-container animate-fade-up">
+                    <div class="timeline-track"></div>
+                    
+                    <!-- Milestone 1 -->
+                    <div class="timeline-block">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-item-title">Company Established</h3>
+                            <p class="timeline-item-desc">Shiv Shiv Sparkline founded to serve the power and infrastructure sectors with uncompromised procurement support.</p>
+                        </div>
+                    </div>
+                    <!-- Milestone 2 -->
+                    <div class="timeline-block">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-item-title">Business Expansion</h3>
+                            <p class="timeline-item-desc">Consolidating active partnerships and expanding direct distribution capabilities to serve contractors and utility projects.</p>
+                        </div>
+                    </div>
+                    <!-- Milestone 3 -->
+                    <div class="timeline-block">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-item-title">Solar Solutions Division</h3>
+                            <p class="timeline-item-desc">Integrating specialized rooftop and commercial solar material supply pathways into our service portfolio.</p>
+                        </div>
+                    </div>
+                    <!-- Milestone 4 -->
+                    <div class="timeline-block">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-item-title">EPC Procurement Services</h3>
+                            <p class="timeline-item-desc">Expanding material coordination assistance and logistics management networks for major electrical infrastructure works.</p>
+                        </div>
+                    </div>
+                    <!-- Milestone 5 -->
+                    <div class="timeline-block">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-item-title">Growing Across Rajasthan</h3>
+                            <p class="timeline-item-desc">Deploying on-site support and prompt material supplies across Rajasthan, supporting modern infrastructure with reliability.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 9: Call To Action -->
+        <section class="section border-top bg-secondary">
+            <div class="container">
+                <div class="about-cta-card animate-fade-up">
+                    <h2 class="cta-card-title">Partner with Shiv Shiv Sparkline</h2>
+                    <p class="cta-card-desc">With a strong focus on quality, timely delivery, and customer satisfaction, we aim to become your dependable electrical procurement partner.</p>
+                    <a href="contact.html" class="btn btn-primary">Initiate Project Inquiry</a>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <!-- Global Footer Interface -->

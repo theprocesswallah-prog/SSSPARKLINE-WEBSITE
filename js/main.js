@@ -64,34 +64,41 @@ document.addEventListener('DOMContentLoaded', () => {
     const subtitleEl = document.getElementById('hero-dynamic-subtitle');
 
     if (labelEl && subtitleEl) {
-        setInterval(() => {
-            // Step 1: Trigger Cinematic Fade-Out (Fades out and shifts up over 600ms)
-            labelEl.classList.add('fade-out');
-            subtitleEl.classList.add('fade-out');
+        // High-fidelity Recursive Cross-Fade Animation Loop
+        const rotateSlides = () => {
+            // Step 1: Initiate Exit Transition (Fade Out + Slide Up over 700ms)
+            labelEl.classList.add('slide-exit');
+            subtitleEl.classList.add('slide-exit');
 
-            // Step 2: At complete opacity 0 (600ms), snap content and position instantly
+            // Step 2: Swap content strictly at opacity absolute zero (700ms limit reached)
             setTimeout(() => {
                 currentSlideIndex = (currentSlideIndex + 1) % heroSlides.length;
                 const nextSlide = heroSlides[currentSlideIndex];
 
-                // Swap structural content
+                // Perform safe DOM content replacements while completely invisible
                 labelEl.textContent = nextSlide.label;
                 subtitleEl.textContent = nextSlide.subtitle;
 
-                // Remove fade-out class and add the snap preparation class (moves elements to offset bottom instantly)
-                labelEl.classList.remove('fade-out');
-                subtitleEl.classList.remove('fade-out');
-                labelEl.classList.add('fade-prep');
-                subtitleEl.classList.add('fade-prep');
+                // Remove exit styling and instantly snap components to bottom offset (+6px)
+                labelEl.classList.remove('slide-exit');
+                subtitleEl.classList.remove('slide-exit');
+                labelEl.classList.add('slide-enter-prep');
+                subtitleEl.classList.add('slide-enter-prep');
 
-                // Force layout recalculation (reflow) so the browser registers the snapped bottom location
+                // Force browser style reflow to register bottom layout preparation
                 void labelEl.offsetWidth;
                 void subtitleEl.offsetWidth;
 
-                // Step 3: Trigger Cinematic Fade-In (Fades in and slides up from 4px back to 0 over 600ms)
-                labelEl.classList.remove('fade-prep');
-                subtitleEl.classList.remove('fade-prep');
-            }, 600); // Wait exactly 600ms (matching the fade-out CSS duration)
-        }, 6000); // Changes text blocks every 6.0 seconds
+                // Step 3: Initiate Entrance Transition (Fade In + Slide Up to 0 over 700ms)
+                labelEl.classList.remove('slide-enter-prep');
+                subtitleEl.classList.remove('slide-enter-prep');
+
+                // Step 4: Keep slide resting perfectly static for 5.5 seconds before initiating next exit sequence
+                setTimeout(rotateSlides, 5500);
+            }, 700);
+        };
+
+        // Initialize recursive execution chain after an initial delay
+        setTimeout(rotateSlides, 5500);
     }
 });

@@ -10,7 +10,7 @@ class AdvancedAnimationController {
         this.observerOptions = {
             root: null, // Monitors window viewport boundary
             rootMargin: '0px', // Standard layout spacing
-            threshold: 0.25 // Standard threshold for high-fidelity bidirectional triggers
+            threshold: 0.25 // Standard threshold for high-fidelity bidirectional triggers (0.25 - 0.35 range)
         };
 
         this.init();
@@ -41,7 +41,7 @@ class AdvancedAnimationController {
 
                         // Schedule staggered entrance frame
                         const timeoutId = setTimeout(() => {
-                            // Verify the section is still active in viewport before adding classes
+                            // Verify the section is still active in viewport before animating
                             if (entry.target.classList.contains('section-active')) {
                                 el.classList.add('active');
                             }

@@ -2,20 +2,76 @@
    Transition, Scroll and Intersection Observer Motion Elements
    ========================================================================== */
 
-/* Fade-Up Base Initialization State */
+/* Page-depth dynamic reveal triggers */
 .animate-fade-up {
     opacity: 0;
     transform: translateY(24px);
     transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* Triggered State */
 .animate-fade-up.active {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* CSS Transition Speed Helpers */
 .transition-delay-100 { transition-delay: 100ms; }
 .transition-delay-200 { transition-delay: 200ms; }
 .transition-delay-300 { transition-delay: 300ms; }
+
+/* ==========================================================================
+   Staggered Hero Sequence Animations (Natively fired on DOM Load)
+   ========================================================================== */
+
+@keyframes hero-fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes header-slide-down {
+    from {
+        opacity: 0;
+        transform: translateY(-12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Stagger Sequence: Video (0s) -> Header (0.1s) -> Category (0.25s) -> Heading (0.4s) -> Subtitle (0.55s) -> Buttons (0.7s) */
+
+.animate-header {
+    opacity: 0;
+    animation: header-slide-down 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.1s;
+}
+
+.animate-label {
+    opacity: 0;
+    animation: hero-fade-up 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.25s;
+}
+
+.animate-heading {
+    opacity: 0;
+    animation: hero-fade-up 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.4s;
+}
+
+.animate-subtitle {
+    opacity: 0;
+    animation: hero-fade-up 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.55s;
+}
+
+.animate-buttons {
+    opacity: 0;
+    animation: hero-fade-up 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.7s;
+}

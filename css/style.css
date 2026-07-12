@@ -310,12 +310,136 @@ body::before {
     margin-bottom: 48px;
 }
 
-/* Symmetrical 2-Column Text Spacing */
+/* Symmetrical 2-Column Text Spacing (Refined as Asymmetric Split Stories) */
 .two-column-layout {
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
     gap: 64px;
     align-items: start;
+}
+
+.story-split-layout {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 72px;
+    align-items: center;
+}
+
+.story-split-layout.alternating {
+    grid-template-columns: 0.85fr 1.15fr;
+}
+
+.story-content-block {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.story-media-block {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Premium Asymmetric Image Frame Mask */
+.image-frame-mask {
+    width: 100%;
+    max-width: 320px;
+    height: 420px;
+    overflow: hidden;
+    /* Clean asymmetric geometric mask (Apple squircle alternative) */
+    border-radius: 120px 24px 120px 24px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-secondary);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.015);
+    transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.image-frame-mask.alternate {
+    border-radius: 24px 120px 24px 120px;
+}
+
+.story-media-block:hover .image-frame-mask {
+    transform: scale(1.03); /* Extremely clean spatial lift */
+}
+
+.fallback-media-canvas {
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(135deg, var(--bg-secondary) 0%, rgba(229, 229, 231, 0.4) 100%);
+    position: relative;
+}
+
+.canvas-grid-line {
+    position: absolute;
+    background-color: rgba(29, 29, 31, 0.03);
+}
+
+.canvas-grid-line:nth-child(1) {
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+}
+
+.canvas-grid-line:nth-child(2) {
+    left: 50%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+}
+
+/* Symmetrical Floating Qualitative Data Cards */
+.floating-stat-card {
+    position: absolute;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 24px 28px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.025);
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 4px;
+    z-index: 10;
+    max-width: 220px;
+    transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.floating-stat-card:hover {
+    transform: translateY(-4px) scale(1.02);
+}
+
+.floating-stat-card.bottom-left {
+    bottom: -16px;
+    left: -24px;
+}
+
+.floating-stat-card.top-right {
+    top: -16px;
+    right: -24px;
+}
+
+.floating-stat-card.bottom-right {
+    bottom: -16px;
+    right: -24px;
+}
+
+.stat-value {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    line-height: 1;
+    font-feature-settings: "tnum" 1;
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    line-height: 1.35;
 }
 
 .about-body-highlight {
@@ -677,18 +801,37 @@ details.service-details[open] summary::after {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Symmetrical Advantages grid */
+/* Symmetrical Advantages grid (Refined as Subtle Outline Grid) */
 .advantages-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
 }
 
+.advantages-grid.subtle-divider-grid {
+    gap: 0; /* Clear standard gaps to allow thin boundary borders */
+}
+
+.advantages-grid.subtle-divider-grid .advantage-card {
+    border-radius: 0;
+    border: none;
+    border-right: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.advantages-grid.subtle-divider-grid .advantage-card:nth-child(3n) {
+    border-right: none; /* Strip extreme right border boundaries */
+}
+
+.advantages-grid.subtle-divider-grid .advantage-card:nth-child(n+4) {
+    border-bottom: none; /* Strip extreme bottom border boundaries */
+}
+
 .advantage-card {
     background: var(--bg-primary);
     border: 1px solid var(--border-color);
     border-radius: 12px;
-    padding: 32px;
+    padding: 40px;
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -942,6 +1085,66 @@ details.service-details[open] summary::after {
     transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Fixed Desktop Reading Progress Sidebar Indicator Panel */
+.reading-progress-sidebar {
+    position: fixed;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 120px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    z-index: 80;
+    pointer-events: none; /* Transparent interaction overlay */
+}
+
+.progress-indicator-track {
+    position: relative;
+    width: 2px;
+    height: 180px;
+    background-color: var(--border-color);
+}
+
+.progress-indicator-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0%; /* Managed dynamically in main.js scroll listener */
+    background-color: var(--accent-color);
+}
+
+.sidebar-links {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    pointer-events: auto; /* Re-enable pointer events for navigation */
+}
+
+.sidebar-dot-link {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+    opacity: 0.4;
+    transition: opacity 300ms cubic-bezier(0.22, 1, 0.36, 1);
+    white-space: nowrap;
+}
+
+.sidebar-dot-link.active {
+    opacity: 1;
+    color: var(--accent-color);
+}
+
+/* Hide navigation reading panels on smaller screen widths */
+@media (max-width: 1366px) {
+    .reading-progress-sidebar {
+        display: none;
+    }
+}
+
 /* Clean Responsive Scaling Utilities */
 @media (max-width: 1024px) {
     .services-columns-grid {
@@ -953,6 +1156,19 @@ details.service-details[open] summary::after {
     .two-column-layout {
         grid-template-columns: 1fr;
         gap: 32px;
+    }
+    
+    .story-split-layout,
+    .story-split-layout.alternating {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+    
+    .floating-stat-card {
+        position: static;
+        margin-top: 16px;
+        max-width: 100%;
+        transform: none !important;
     }
     
     .card-grid-symmetrical {

@@ -52,14 +52,18 @@
     z-index: 2;
 }
 
-/* Directional Left-to-Right linear gradient overlay to preserve high text contrast */
+/* Dual Stacked Readability Overlay (Begins from the very top of the viewport) */
 .hero-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, rgba(17, 17, 18, 0.75) 0%, rgba(17, 17, 18, 0.4) 40%, rgba(17, 17, 18, 0) 100%);
+    background: 
+        /* Top-down vertical fade to anchor transparent global navigation readable states */
+        linear-gradient(180deg, rgba(17, 17, 18, 0.7) 0%, rgba(17, 17, 18, 0.2) 25%, rgba(17, 17, 18, 0) 100%),
+        /* Left-to-right horizontal fade to anchor readability over moving background details */
+        linear-gradient(90deg, rgba(17, 17, 18, 0.8) 0%, rgba(17, 17, 18, 0.35) 45%, rgba(17, 17, 18, 0) 100%);
     z-index: 3;
 }
 
@@ -73,6 +77,16 @@
 .hero-text-block {
     max-width: 650px;
     padding-left: 8px;
+}
+
+/* Dynamic text properties with fade animations */
+.hero-category, .hero-subtitle {
+    transition: opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Slide Transition state triggers */
+.hero-category.fade-out, .hero-subtitle.fade-out {
+    opacity: 0 !important;
 }
 
 /* Uppercase visual Category Stamp */
@@ -91,7 +105,7 @@
     font-weight: 700;
     letter-spacing: -0.025em;
     color: #FFFFFF;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
     line-height: 1.05;
 }
 
@@ -99,9 +113,9 @@
 .hero-subtitle {
     font-size: 1.125rem;
     font-weight: 400;
-    line-height: 1.55;
-    color: rgba(255, 255, 255, 0.8);
-    margin-bottom: 36px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 40px;
     max-width: 580px;
 }
 

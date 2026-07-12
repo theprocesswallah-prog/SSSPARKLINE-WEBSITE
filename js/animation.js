@@ -1,6 +1,6 @@
 /**
  * ==========================================================================
- * Advanced Staggered Section Reveals (Intersection Observer)
+ * Advanced Re-triggerable Staggered Section Reveals (Intersection Observer)
  * ==========================================================================
  */
 
@@ -8,9 +8,9 @@ class AdvancedAnimationController {
     constructor() {
         this.sections = document.querySelectorAll('section');
         this.observerOptions = {
-            root: null, // Relative to browser viewport boundary
-            rootMargin: '0px 0px -12% 0px', // Precise offset to trigger just before entering frames
-            threshold: 0.15 // Minimum 15% section visibility required to fire
+            root: null, // Monitors window viewport boundary
+            rootMargin: '0px', // Standard layout spacing
+            threshold: 0.25 // Standard threshold for high-fidelity bidirectional triggers
         };
 
         this.init();
@@ -25,22 +25,40 @@ class AdvancedAnimationController {
     }
 
     createObserver() {
-        const observer = new IntersectionObserver((entries, observer) => {
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
+                const animatableElements = entry.target.querySelectorAll('.animate-fade-up');
+                
                 if (entry.isIntersecting) {
+                    // Enter viewport: Apply active class states
                     entry.target.classList.add('section-active');
                     
-                    // Discover all animating elements within the active section
-                    const animatableElements = entry.target.querySelectorAll('.animate-fade-up');
-                    
-                    // Trigger elements sequentially with progressive staggered delay intervals (100ms)
                     animatableElements.forEach((el, index) => {
-                        setTimeout(() => {
-                            el.classList.add('active');
-                        }, index * 100);
+                        // Cancel any pending animations to prevent duplicate timer collision states
+                        if (el.dataset.animationTimeout) {
+                            clearTimeout(parseInt(el.dataset.animationTimeout, 10));
+                        }
+
+                        // Schedule staggered entrance frame
+                        const timeoutId = setTimeout(() => {
+                            // Verify the section is still active in viewport before adding classes
+                            if (entry.target.classList.contains('section-active')) {
+                                el.classList.add('active');
+                            }
+                        }, index * 80); // Tighter 80ms stagger interval for highly fluid momentum
+                        
+                        el.dataset.animationTimeout = timeoutId;
                     });
+                } else {
+                    // Exit viewport: Safely strip active classes and cancel pending stagger queues
+                    entry.target.classList.remove('section-active');
                     
-                    observer.unobserve(entry.target); // Unbind clean to maintain high fps rendering
+                    animatableElements.forEach(el => {
+                        if (el.dataset.animationTimeout) {
+                            clearTimeout(parseInt(el.dataset.animationTimeout, 10));
+                        }
+                        el.classList.remove('active');
+                    });
                 }
             });
         }, this.observerOptions);

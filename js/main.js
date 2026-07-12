@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Dynamic Slide Rotation Data (Strictly sourced from verified company services/offerings)
+    // Dynamic Slide Rotation Data (Sourced from verified company services/offerings)
     const heroSlides = [
         {
             label: "01 / ELECTRICAL TRADING",
@@ -65,22 +65,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (labelEl && subtitleEl) {
         setInterval(() => {
-            // Apply opacity fade-out state
+            // Step 1: Trigger Cinematic Fade-Out (Fades out and shifts up over 600ms)
             labelEl.classList.add('fade-out');
             subtitleEl.classList.add('fade-out');
 
-            // Wait for visual transition to complete (400ms) before swapping text contents
+            // Step 2: At complete opacity 0 (600ms), snap content and position instantly
             setTimeout(() => {
                 currentSlideIndex = (currentSlideIndex + 1) % heroSlides.length;
                 const nextSlide = heroSlides[currentSlideIndex];
 
+                // Swap structural content
                 labelEl.textContent = nextSlide.label;
                 subtitleEl.textContent = nextSlide.subtitle;
 
-                // Restore visibility state
+                // Remove fade-out class and add the snap preparation class (moves elements to offset bottom instantly)
                 labelEl.classList.remove('fade-out');
                 subtitleEl.classList.remove('fade-out');
-            }, 400);
-        }, 4000); // Rotates text blocks every 4.0 seconds
+                labelEl.classList.add('fade-prep');
+                subtitleEl.classList.add('fade-prep');
+
+                // Force layout recalculation (reflow) so the browser registers the snapped bottom location
+                void labelEl.offsetWidth;
+                void subtitleEl.offsetWidth;
+
+                // Step 3: Trigger Cinematic Fade-In (Fades in and slides up from 4px back to 0 over 600ms)
+                labelEl.classList.remove('fade-prep');
+                subtitleEl.classList.remove('fade-prep');
+            }, 600); // Wait exactly 600ms (matching the fade-out CSS duration)
+        }, 6000); // Changes text blocks every 6.0 seconds
     }
 });

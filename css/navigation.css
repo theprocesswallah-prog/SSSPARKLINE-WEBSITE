@@ -10,20 +10,10 @@
     height: var(--header-height);
     display: flex;
     align-items: center;
-    background-color: transparent; /* Transparent over Hero Video */
+    background-color: transparent;
     border-bottom: 1px solid transparent;
     transition: var(--transition-smooth);
     z-index: var(--z-header);
-}
-
-/* White elements when transparent over dark video hero overlay */
-.global-header:not(.scrolled):not(.static-header) .logo-text,
-.global-header:not(.scrolled):not(.static-header) .nav-link {
-    color: #FFFFFF;
-}
-
-.global-header:not(.scrolled):not(.static-header) .toggle-bar {
-    background-color: #FFFFFF;
 }
 
 /* Translucent Sticky State Triggered on Scroll */
@@ -36,29 +26,11 @@
     -webkit-backdrop-filter: blur(20px);
 }
 
-.global-header.scrolled .logo-text,
-.global-header.scrolled .nav-link {
-    color: var(--text-primary);
-}
-
-.global-header.scrolled .toggle-bar {
-    background-color: var(--text-primary);
-}
-
 /* Static fallback configuration for internal pages without Hero Canvas */
 .global-header.static-header {
     background-color: var(--bg-primary);
     border-bottom: 1px solid var(--border-color);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
-}
-
-.global-header.static-header .logo-text,
-.global-header.static-header .nav-link {
-    color: var(--text-primary);
-}
-
-.global-header.static-header .toggle-bar {
-    background-color: var(--text-primary);
 }
 
 .nav-container {
@@ -84,39 +56,95 @@
 }
 
 .logo-text {
-    font-size: 1.125rem;
+    font-size: 1.4rem; /* Increased logo presence for clear signature look */
     font-weight: 700;
     letter-spacing: -0.015em;
-    transition: var(--transition-fast);
+    transition: var(--transition-smooth);
 }
 
+.global-header:not(.scrolled):not(.static-header) .logo-text {
+    color: #FFFFFF;
+}
+
+.global-header.scrolled .logo-text,
+.global-header.static-header .logo-text {
+    color: var(--text-primary);
+}
+
+/* Generous Navigation Spacing Interval */
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 32px;
+    gap: 48px; /* Spacing increased from 32px to 48px */
 }
 
+/* Navigation Links Style (Font: 17px, Weight: 600) */
 .nav-link {
-    font-size: 0.8125rem;
-    font-weight: 500;
-    opacity: 0.85;
+    font-size: 17px;
+    font-weight: 600;
     cursor: pointer;
     display: flex;
     align-items: center;
     height: var(--header-height);
-    transition: var(--transition-fast);
+    position: relative;
+    transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .global-header.scrolled .nav-link {
     height: var(--header-height-scrolled);
 }
 
-.nav-link:hover, .nav-link.active {
-    opacity: 1;
-    color: var(--accent-color) !important;
+/* Interactive Link Contrast Rules (Removes Blue Active State) */
+.global-header:not(.scrolled):not(.static-header) .nav-link {
+    color: #FFFFFF;
+    opacity: 0.75;
 }
 
-/* Dropdown Container Element */
+.global-header:not(.scrolled):not(.static-header) .nav-link:hover,
+.global-header:not(.scrolled):not(.static-header) .nav-link.active {
+    color: #FFFFFF !important;
+    opacity: 1 !important;
+}
+
+.global-header.scrolled .nav-link,
+.global-header.static-header .nav-link {
+    color: var(--text-primary);
+    opacity: 0.75;
+}
+
+.global-header.scrolled .nav-link:hover,
+.global-header.scrolled .nav-link.active,
+.global-header.static-header .nav-link:hover,
+.global-header.static-header .nav-link.active {
+    color: var(--text-primary) !important;
+    opacity: 1 !important;
+}
+
+/* Subtle, High-Contrast Active Underline Animation */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 24px;
+    left: 0;
+    width: 100%;
+    height: 1.5px;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.global-header.scrolled .nav-link::after {
+    bottom: 20px;
+}
+
+.nav-link:hover::after, 
+.nav-link.active::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Dropdown Container */
 .nav-item-dropdown {
     position: static;
 }
@@ -234,68 +262,3 @@
     width: 100%;
     margin-top: 16px;
 }
-/**
- * ==========================================================================
- * Navigation Interactive & Scroll Transitions Handler
- * ==========================================================================
- */
-
-class NavigationController {
-    constructor() {
-        this.header = document.getElementById('global-header');
-        this.mobileToggle = document.getElementById('mobile-toggle');
-        this.mobileDrawer = document.getElementById('mobile-drawer');
-        this.scrollThreshold = 20;
-
-        this.init();
-    }
-
-    init() {
-        // Apply scroll event listeners safely
-        window.addEventListener('scroll', () => this.handleScroll(), { passive: true });
-        
-        // Mobile Toggle Interactions
-        if (this.mobileToggle && this.mobileDrawer) {
-            this.mobileToggle.addEventListener('click', () => this.toggleMobileMenu());
-        }
-
-        // Trigger on init to verify state
-        this.handleScroll();
-    }
-
-    handleScroll() {
-        if (!this.header) return;
-
-        // Skip translucent processing if the scroll triggers on static subpage headers
-        if (this.header.classList.contains('static-header')) return;
-
-        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-
-        // Apply scroll modification classes for header downscaling and color state changes
-        if (currentScroll > this.scrollThreshold) {
-            this.header.classList.add('scrolled');
-        } else {
-            // Remove scroll styling only if mobile drawer menu is closed
-            if (!this.mobileDrawer || !this.mobileDrawer.classList.contains('open')) {
-                this.header.classList.remove('scrolled');
-            }
-        }
-    }
-
-    toggleMobileMenu() {
-        this.mobileToggle.classList.toggle('active');
-        this.mobileDrawer.classList.toggle('open');
-        
-        // Lock window scroll mechanics when drawer is initialized
-        if (this.mobileDrawer.classList.contains('open')) {
-            this.header.classList.add('scrolled');
-            document.body.style.overflow = 'hidden';
-        } else {
-            this.handleScroll();
-            document.body.style.overflow = '';
-        }
-    }
-}
-
-// Instantiate Globally for modular access
-window.Navigation = new NavigationController();

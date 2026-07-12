@@ -39,7 +39,7 @@ main {
 }
 
 .page-container {
-    padding-top: var(--header-height); /* Clear visual space below static header */
+    padding-top: var(--header-height); /* Clear space below static header */
     min-height: 80vh;
 }
 

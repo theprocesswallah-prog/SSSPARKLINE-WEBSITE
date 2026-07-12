@@ -218,17 +218,31 @@
    About Us Specific Subpage Modular Layout Elements
    ========================================================================== */
 
-/* Alternating Subtle Background Tone Architecture */
+/* Subtly dynamic handcrafted background paper grain/noise texture overlay (< 2% opacity) */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0.015; /* Safely remains unnoticeable but texturizes light space */
+    z-index: 9999;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Symmetrical Background Tone Architecture (Smoother alternation with 60fps support) */
 .bg-white {
-    background-color: #FFFFFF;
+    background-color: var(--bg-primary);
 }
 
 .bg-neutral-light {
-    background-color: #FAFAFA;
+    background-color: var(--bg-secondary);
 }
 
 .bg-neutral-subtle {
-    background-color: #F8F8F8;
+    background-color: var(--bg-tertiary);
 }
 
 /* Generous whitespace spacing replacing traditional heavy dividers */
@@ -251,7 +265,7 @@
 }
 
 .about-hero-lead {
-    font-size: 1.45rem; /* Upgraded font-size for better lead focus */
+    font-size: 1.45rem; /* Amplified font-size for better lead focus */
     line-height: 1.6;
     font-weight: 400;
     color: var(--text-secondary);
@@ -259,14 +273,34 @@
     margin-top: 16px;
 }
 
-.section-label-minimal {
-    display: block;
+/* Premium Editorial Numbered Section Labels */
+.editorial-section-label {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.editorial-num {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    opacity: 0.8;
+    font-feature-settings: "tnum" 1; /* Aligns monospace numbers beautifully */
+}
+
+.editorial-divider {
+    width: 32px;
+    height: 1px;
+    background-color: var(--border-color);
+}
+
+.editorial-text {
     font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15em;
     color: var(--text-secondary);
-    margin-bottom: 16px;
 }
 
 .about-section-heading {
@@ -349,13 +383,15 @@
     flex-direction: column;
     align-items: start;
     gap: 20px;
-    transition: var(--transition-smooth);
+    transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1), 
+                box-shadow 200ms cubic-bezier(0.22, 1, 0.36, 1), 
+                border-color 200ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .offering-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.02);
-    border-color: rgba(29, 29, 31, 0.15);
+    transform: translateY(-4px); /* Premium minimal lift */
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.03); /* Soft subtle depth */
+    border-color: rgba(29, 29, 31, 0.15); /* Sleek outline focus */
 }
 
 .offering-icon {
@@ -391,6 +427,15 @@
     display: flex;
     flex-direction: column;
     align-items: start;
+    transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1), 
+                box-shadow 200ms cubic-bezier(0.22, 1, 0.36, 1), 
+                border-color 200ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.about-premium-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.03);
+    border-color: rgba(29, 29, 31, 0.15);
 }
 
 .card-badge-accent {
@@ -447,6 +492,15 @@
     gap: 48px;
     align-items: start;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.01);
+    transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1), 
+                box-shadow 200ms cubic-bezier(0.22, 1, 0.36, 1), 
+                border-color 200ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.founder-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.03);
+    border-color: rgba(29, 29, 31, 0.15);
 }
 
 .founder-photo-wrapper {
@@ -466,6 +520,11 @@
     justify-content: center;
     background-image: linear-gradient(135deg, var(--bg-secondary) 0%, rgba(229, 229, 231, 0.5) 100%);
     position: relative;
+    transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.founder-card:hover .founder-photo-placeholder {
+    transform: scale(1.04); /* Premium smooth frame expansion */
 }
 
 .placeholder-avatar-icon {
@@ -538,6 +597,15 @@
     flex-direction: column;
     align-items: start;
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.01);
+    transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1), 
+                box-shadow 200ms cubic-bezier(0.22, 1, 0.36, 1), 
+                border-color 200ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.service-block-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.03);
+    border-color: rgba(29, 29, 31, 0.15);
 }
 
 .service-index {
@@ -625,6 +693,15 @@ details.service-details[open] summary::after {
     flex-direction: column;
     align-items: start;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.005);
+    transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1), 
+                box-shadow 200ms cubic-bezier(0.22, 1, 0.36, 1), 
+                border-color 200ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.advantage-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.03);
+    border-color: rgba(29, 29, 31, 0.15);
 }
 
 .advantage-title {
@@ -655,6 +732,15 @@ details.service-details[open] summary::after {
     flex-direction: column;
     align-items: start;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.005);
+    transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1), 
+                box-shadow 200ms cubic-bezier(0.22, 1, 0.36, 1), 
+                border-color 200ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cert-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.03);
+    border-color: rgba(29, 29, 31, 0.15);
 }
 
 .cert-icon-wrapper {
@@ -728,6 +814,17 @@ details.service-details[open] summary::after {
     background-color: var(--border-color);
 }
 
+/* Chronological scrolling progress indicator */
+.timeline-progress {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 0%; /* Dynamic height calculated in scroll.js */
+    background-color: var(--accent-color);
+    transition: height 100ms ease-out; /* Keeps drawing highly fluid at 60fps */
+}
+
 .timeline-block {
     position: relative;
     margin-bottom: 56px;
@@ -745,13 +842,26 @@ details.service-details[open] summary::after {
     height: 10px;
     border-radius: 50%;
     background-color: var(--bg-primary);
-    border: 2px solid var(--accent-color);
+    border: 2px solid var(--border-color); /* Default state matches border outline */
+    transition: background-color 400ms ease, border-color 400ms ease, transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Active timeline node triggered on active viewport intersections */
+.timeline-block.active-node .timeline-dot {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    transform: scale(1.3);
 }
 
 .timeline-content {
     display: flex;
     flex-direction: column;
     align-items: start;
+    transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.timeline-block.active-node .timeline-content {
+    transform: translateX(4px); /* Sleek sequential layout highlight */
 }
 
 .timeline-item-title {
@@ -779,6 +889,15 @@ details.service-details[open] summary::after {
     flex-direction: column;
     align-items: center;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.01);
+    transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1), 
+                box-shadow 200ms cubic-bezier(0.22, 1, 0.36, 1), 
+                border-color 200ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.about-cta-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.03);
+    border-color: rgba(29, 29, 31, 0.15);
 }
 
 .cta-card-title {

@@ -202,4 +202,42 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }, { passive: true });
     }
+
+    // ==========================================================================
+    // Fixed Desktop Reading Progress Sidebar Tracker
+    // ==========================================================================
+    const globalProgressBar = document.getElementById('global-scroll-bar');
+    const sidebarDotLinks = document.querySelectorAll('.sidebar-dot-link');
+    const activeTrackedSections = document.querySelectorAll('main > section[id]');
+
+    if (globalProgressBar && activeTrackedSections.length > 0) {
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+            // Total height available for scrolling
+            const scrollRange = document.documentElement.scrollHeight - window.innerHeight;
+            
+            if (scrollRange > 0) {
+                const progressPercentage = (currentScroll / scrollRange) * 100;
+                globalProgressBar.style.height = `${progressPercentage}%`;
+            }
+
+            // Detect current active section in view based on midline trigger coordinate
+            let currentActiveId = '';
+            activeTrackedSections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= window.innerHeight * 0.45) {
+                    currentActiveId = section.getAttribute('id');
+                }
+            });
+
+            // Map highlight state classes to sidebar indicators
+            sidebarDotLinks.forEach(link => {
+                if (link.getAttribute('data-target') === currentActiveId) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }, { passive: true });
+    }
 });

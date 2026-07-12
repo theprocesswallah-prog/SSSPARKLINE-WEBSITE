@@ -6,23 +6,25 @@
     /* System Typography Stack */
     --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
     
-    /* Strict Alternating Color Archetypes (No heavy gradients, premium SaaS system) */
-    --bg-primary: #FFFFFF;
-    --bg-secondary: #FAFAFA;
-    --bg-tertiary: #F7F7F8;
-    --bg-dark-slate: #0F172A;
-    --bg-dark-premium: #0B0F19;
+    /* Strict Alternating Color Archetypes (Redesigned as Symmetrical Dark Theme) */
+    --bg-primary: #071120;       /* Base Deep Slate */
+    --bg-secondary: #0B1324;     /* Secondary Dark Slate */
+    --bg-tertiary: #111827;      /* Subtle Cool Charcoal */
+    --bg-dark-slate: #071120;
+    --bg-dark-premium: #0B1324;
     
-    --text-primary: #1D1D1F;
-    --text-secondary: #6E6E73;
-    --border-color: #E5E5E7;
+    /* High-contrast Typographic Tokens */
+    --text-primary: #FFFFFF;                 /* Headers: Pure White */
+    --text-secondary: rgba(255, 255, 255, 0.82); /* Paragraphs: Sourced 82% white alpha */
+    --text-muted: #BFC7D5;                   /* Subtitles & Descriptions */
+    --border-color: rgba(255, 255, 255, 0.08); /* Low-opacity border boundaries */
     --border-color-dark: rgba(255, 255, 255, 0.08);
-    --accent-color: #0066FF; /* Universal accent */
+    --accent-color: #2563EB;                 /* Premium Sourced Blue Accent */
     
     /* Transparency & Overlay Layers */
-    --bg-navbar-translucent: rgba(255, 255, 255, 0.72);
+    --bg-navbar-translucent: rgba(255, 255, 255, 0.95);
     --bg-navbar-translucent-dark: rgba(15, 23, 42, 0.72);
-    --bg-submenu-blur: rgba(15, 23, 42, 0.85); /* Subtle dark semi-transparent theme */
+    --bg-submenu-blur: rgba(15, 23, 42, 0.92); /* Subtle dark semi-transparent theme */
     --hero-overlay: rgba(29, 29, 31, 0.45); /* Soft darken for maximum video contrast */
     
     /* Layout Dimensions */

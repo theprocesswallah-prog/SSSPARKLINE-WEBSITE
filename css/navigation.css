@@ -10,27 +10,35 @@
     height: var(--header-height);
     display: flex;
     align-items: center;
-    background-color: transparent;
-    border-bottom: 1px solid transparent;
+    background-color: rgba(255, 255, 255, 0.8); /* Translucent White Glass */
+    border-bottom: 1px solid var(--border-color);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     transition: var(--transition-smooth);
     z-index: var(--z-header);
 }
 
-/* Translucent Sticky State Triggered on Scroll */
+/* Dynamic Floating Pill Scroll Transformation (Apple/Stripe Inspired) */
 .global-header.scrolled {
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: var(--max-width);
     height: var(--header-height-scrolled);
-    background-color: var(--bg-navbar);
-    border-bottom: 1px solid var(--border-color);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    border-radius: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.72);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.05);
 }
 
-/* Static fallback configuration for internal pages without Hero Canvas */
-.global-header.static-header {
-    background-color: var(--bg-primary);
-    border-bottom: 1px solid var(--border-color);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
+.global-header:not(.scrolled):not(.static-header) .logo-text,
+.global-header:not(.scrolled):not(.static-header) .nav-link {
+    color: #FFFFFF;
+}
+
+.global-header:not(.scrolled):not(.static-header) .toggle-bar {
+    background-color: #FFFFFF;
 }
 
 .nav-container {
@@ -50,20 +58,16 @@
     transition: var(--transition-smooth);
 }
 
-/* Scale visual branding signature on active scroll state */
+/* Gently scale visual branding signature on active scroll state */
 .global-header.scrolled .nav-logo {
     transform: scale(0.92);
 }
 
 .logo-text {
-    font-size: 1.4rem; /* Increased logo presence for clear signature look */
+    font-size: 1.4rem;
     font-weight: 700;
     letter-spacing: -0.015em;
     transition: var(--transition-smooth);
-}
-
-.global-header:not(.scrolled):not(.static-header) .logo-text {
-    color: #FFFFFF;
 }
 
 .global-header.scrolled .logo-text,
@@ -71,14 +75,12 @@
     color: var(--text-primary);
 }
 
-/* Generous Navigation Spacing Interval */
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 48px; /* Spacing increased from 32px to 48px */
+    gap: 48px;
 }
 
-/* Navigation Links Style (Font: 17px, Weight: 600) */
 .nav-link {
     font-size: 17px;
     font-weight: 600;
@@ -94,7 +96,7 @@
     height: var(--header-height-scrolled);
 }
 
-/* Interactive Link Contrast Rules (Removes Blue Active State) */
+/* Underline active style overrides */
 .global-header:not(.scrolled):not(.static-header) .nav-link {
     color: #FFFFFF;
     opacity: 0.75;
@@ -120,7 +122,6 @@
     opacity: 1 !important;
 }
 
-/* Subtle, High-Contrast Active Underline Animation */
 .nav-link::after {
     content: '';
     position: absolute;
@@ -144,7 +145,6 @@
     transform-origin: left;
 }
 
-/* Dropdown Container */
 .nav-item-dropdown {
     position: static;
 }
@@ -174,7 +174,6 @@
     top: var(--header-height-scrolled);
 }
 
-/* Hover-triggered behavior */
 .nav-item-dropdown:hover .submenu-strip {
     opacity: 1;
     visibility: visible;
@@ -204,7 +203,6 @@
     color: #FFFFFF;
 }
 
-/* Nav Actions */
 .nav-actions {
     display: flex;
     align-items: center;
@@ -229,7 +227,6 @@
     transition: var(--transition-fast);
 }
 
-/* Mobile Side Drawer Base Container */
 .mobile-drawer {
     position: fixed;
     top: 0;

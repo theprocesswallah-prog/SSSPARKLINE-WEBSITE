@@ -9,7 +9,7 @@ class NavigationController {
         this.header = document.getElementById('global-header');
         this.mobileToggle = document.getElementById('mobile-toggle');
         this.mobileDrawer = document.getElementById('mobile-drawer');
-        this.scrollThreshold = 20;
+        this.scrollThreshold = 50; // Triggers header scale transformation
 
         this.init();
     }
@@ -32,11 +32,14 @@ class NavigationController {
 
         const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
-        // Apply scroll modification classes for header downscaling
+        // Apply scroll modification classes for header downscaling and color state changes
         if (currentScroll > this.scrollThreshold) {
             this.header.classList.add('scrolled');
         } else {
-            this.header.classList.remove('scrolled');
+            // Remove scroll styling only if mobile drawer menu is closed
+            if (!this.mobileDrawer || !this.mobileDrawer.classList.contains('open')) {
+                this.header.classList.remove('scrolled');
+            }
         }
     }
 
@@ -46,8 +49,10 @@ class NavigationController {
         
         // Lock window scroll mechanics when drawer is initialized
         if (this.mobileDrawer.classList.contains('open')) {
+            this.header.classList.add('scrolled');
             document.body.style.overflow = 'hidden';
         } else {
+            this.handleScroll();
             document.body.style.overflow = '';
         }
     }

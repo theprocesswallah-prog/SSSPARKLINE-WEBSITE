@@ -85,28 +85,29 @@
     font-weight: 700;
     letter-spacing: -0.025em;
     color: #FFFFFF;
-    margin-bottom: 16px; /* Optimized margin spacing for top-stacked configuration */
+    margin-bottom: 16px;
     line-height: 1.05;
 }
 
-/* Cinematic Transition Base Classes (Fitted with premium Apple-inspired ease curves) */
+/* True Cinematic Cross-fade Base Properties (Ease-In-Out, Hardware Accelerated) */
 .hero-category, .hero-subtitle {
-    transition: opacity 600ms cubic-bezier(0.25, 1, 0.5, 1), transform 600ms cubic-bezier(0.25, 1, 0.5, 1);
+    transition: opacity 700ms ease-in-out, transform 700ms ease-in-out;
     transform: translateY(0);
     opacity: 1;
+    will-change: opacity, transform; /* Instructs GPU allocation to prevent scroll stutter */
 }
 
-/* Phase 1: Cinematic Fade-Out state (Dissolve & shift up slightly) */
-.hero-category.fade-out, .hero-subtitle.fade-out {
+/* Phase 1: Cinematic Exit State (Fades out completely and shifts up by 6px) */
+.hero-category.slide-exit, .hero-subtitle.slide-exit {
     opacity: 0 !important;
-    transform: translateY(-4px) !important;
+    transform: translateY(-6px) !important;
 }
 
-/* Phase 2: Instant spatial snap to bottom offset while completely invisible */
-.hero-category.fade-prep, .hero-subtitle.fade-prep {
+/* Phase 2: Snapping State (Invisible at offset 6px bottom, transition logic disabled) */
+.hero-category.slide-enter-prep, .hero-subtitle.slide-enter-prep {
     transition: none !important;
     opacity: 0 !important;
-    transform: translateY(4px) !important;
+    transform: translateY(6px) !important;
 }
 
 /* Rotating Category Label directly below the fixed title */
@@ -117,7 +118,7 @@
     text-transform: uppercase;
     letter-spacing: 0.15em;
     color: rgba(255, 255, 255, 0.6);
-    margin-bottom: 12px; /* Spacing margin to description below */
+    margin-bottom: 12px;
 }
 
 /* Rotating Description directly below the category label */
@@ -126,7 +127,7 @@
     font-weight: 400;
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.85);
-    margin-bottom: 40px; /* Generous breathing space pushing CTA buttons down */
+    margin-bottom: 40px;
     max-width: 580px;
 }
 

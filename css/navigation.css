@@ -10,35 +10,16 @@
     height: var(--header-height);
     display: flex;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.8); /* Translucent White Glass */
+    background-color: #FFFFFF !important; /* Permanent solid white background */
     border-bottom: 1px solid var(--border-color);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    transition: var(--transition-smooth);
+    transition: box-shadow 0.3s ease, height 0.3s ease;
     z-index: var(--z-header);
 }
 
-/* Dynamic Floating Pill Scroll Transformation (Apple/Stripe Inspired) */
+/* Scroll Trigger state applies subtle soft shadow overlay only */
 .global-header.scrolled {
-    top: 16px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    max-width: var(--max-width);
     height: var(--header-height-scrolled);
-    border-radius: 32px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    background-color: rgba(255, 255, 255, 0.72);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.05);
-}
-
-.global-header:not(.scrolled):not(.static-header) .logo-text,
-.global-header:not(.scrolled):not(.static-header) .nav-link {
-    color: #FFFFFF;
-}
-
-.global-header:not(.scrolled):not(.static-header) .toggle-bar {
-    background-color: #FFFFFF;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08); /* Soft scroll shadow */
 }
 
 .nav-container {
@@ -67,23 +48,22 @@
     font-size: 1.4rem;
     font-weight: 700;
     letter-spacing: -0.015em;
-    transition: var(--transition-smooth);
+    color: var(--bg-dark-slate) !important; /* Dark logo text */
 }
 
-.global-header.scrolled .logo-text,
-.global-header.static-header .logo-text {
-    color: var(--text-primary);
-}
-
+/* Generous Navigation Spacing Interval */
 .nav-links {
     display: flex;
     align-items: center;
     gap: 48px;
 }
 
+/* Navigation Links Style (Font: 17px, Weight: 600) */
 .nav-link {
     font-size: 17px;
     font-weight: 600;
+    color: var(--bg-dark-slate) !important; /* Dark menu links */
+    opacity: 0.75;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -96,32 +76,12 @@
     height: var(--header-height-scrolled);
 }
 
-/* Underline active style overrides */
-.global-header:not(.scrolled):not(.static-header) .nav-link {
-    color: #FFFFFF;
-    opacity: 0.75;
-}
-
-.global-header:not(.scrolled):not(.static-header) .nav-link:hover,
-.global-header:not(.scrolled):not(.static-header) .nav-link.active {
-    color: #FFFFFF !important;
+.nav-link:hover, .nav-link.active {
+    color: var(--bg-dark-slate) !important;
     opacity: 1 !important;
 }
 
-.global-header.scrolled .nav-link,
-.global-header.static-header .nav-link {
-    color: var(--text-primary);
-    opacity: 0.75;
-}
-
-.global-header.scrolled .nav-link:hover,
-.global-header.scrolled .nav-link.active,
-.global-header.static-header .nav-link:hover,
-.global-header.static-header .nav-link.active {
-    color: var(--text-primary) !important;
-    opacity: 1 !important;
-}
-
+/* Subtle, High-Contrast Active Underline Animation */
 .nav-link::after {
     content: '';
     position: absolute;
@@ -129,7 +89,7 @@
     left: 0;
     width: 100%;
     height: 1.5px;
-    background-color: currentColor;
+    background-color: var(--bg-dark-slate);
     transform: scaleX(0);
     transform-origin: right;
     transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
@@ -145,6 +105,7 @@
     transform-origin: left;
 }
 
+/* Dropdown Container */
 .nav-item-dropdown {
     position: static;
 }
@@ -174,6 +135,7 @@
     top: var(--header-height-scrolled);
 }
 
+/* Hover-triggered behavior */
 .nav-item-dropdown:hover .submenu-strip {
     opacity: 1;
     visibility: visible;
@@ -203,10 +165,20 @@
     color: #FFFFFF;
 }
 
+/* Nav Actions overrides to stay dark on white background */
 .nav-actions {
     display: flex;
     align-items: center;
     gap: 16px;
+}
+
+.btn-nav {
+    background-color: var(--bg-dark-slate) !important;
+    color: #FFFFFF !important;
+}
+
+.btn-nav:hover {
+    background-color: var(--accent-color) !important;
 }
 
 .mobile-menu-toggle {
@@ -224,9 +196,11 @@
 .toggle-bar {
     width: 100%;
     height: 1.5px;
+    background-color: var(--bg-dark-slate);
     transition: var(--transition-fast);
 }
 
+/* Mobile Side Drawer Base Container */
 .mobile-drawer {
     position: fixed;
     top: 0;

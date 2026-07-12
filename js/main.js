@@ -1,6 +1,6 @@
 /**
  * ==========================================================================
- * System Orchestration & Programmatic Autoplay Manager
+ * System Orchestration & Programmatic Interaction Manager
  * ==========================================================================
  */
 
@@ -100,5 +100,106 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Initialize recursive execution chain after an initial delay
         setTimeout(rotateSlides, 5500);
+    }
+
+    // ==========================================================================
+    // Premium Accordion Height Animations (Core Services details)
+    // ==========================================================================
+    const accordions = document.querySelectorAll('details.service-details');
+    accordions.forEach(accordion => {
+        const summary = accordion.querySelector('summary');
+        const content = accordion.querySelector('.service-expanded-content');
+        
+        if (summary && content) {
+            summary.addEventListener('click', (e) => {
+                e.preventDefault(); // Intercept browser default instant opening state
+                
+                if (accordion.hasAttribute('open')) {
+                    // Phase A: Shrink accordion smoothly
+                    const startHeight = accordion.offsetHeight;
+                    content.style.opacity = '0';
+                    content.style.transform = 'translateY(4px)';
+                    
+                    const endHeight = summary.offsetHeight + 16; // Add top vertical padding offsets
+                    
+                    accordion.style.height = `${startHeight}px`;
+                    void accordion.offsetHeight; // Force browser layout reflow
+                    
+                    accordion.style.transition = 'height 500ms cubic-bezier(0.22, 1, 0.36, 1)';
+                    accordion.style.height = `${endHeight}px`;
+                    
+                    const shrinkEnd = (evt) => {
+                        if (evt.propertyName === 'height') {
+                            accordion.removeAttribute('open');
+                            accordion.style.height = '';
+                            accordion.style.transition = '';
+                            accordion.removeEventListener('transitionend', shrinkEnd);
+                        }
+                    };
+                    accordion.addEventListener('transitionend', shrinkEnd);
+                } else {
+                    // Phase B: Expand accordion smoothly
+                    accordion.setAttribute('open', '');
+                    const endHeight = summary.offsetHeight + content.scrollHeight + 20; // Add padding spacing offsets
+                    const startHeight = summary.offsetHeight;
+                    
+                    accordion.style.height = `${startHeight}px`;
+                    content.style.opacity = '0';
+                    content.style.transform = 'translateY(4px)';
+                    void accordion.offsetHeight; // Force browser layout reflow
+                    
+                    accordion.style.transition = 'height 500ms cubic-bezier(0.22, 1, 0.36, 1)';
+                    accordion.style.height = `${endHeight}px`;
+                    
+                    const expandEnd = (evt) => {
+                        if (evt.propertyName === 'height') {
+                            accordion.style.height = '';
+                            accordion.style.transition = '';
+                            content.style.transition = 'opacity 350ms ease, transform 350ms cubic-bezier(0.22, 1, 0.36, 1)';
+                            content.style.opacity = '1';
+                            content.style.transform = 'translateY(0)';
+                            accordion.removeEventListener('transitionend', expandEnd);
+                        }
+                    };
+                    accordion.addEventListener('transitionend', expandEnd);
+                }
+            });
+        }
+    });
+
+    // ==========================================================================
+    // Symmetrical Company Journey Timeline Scroll Drawer
+    // ==========================================================================
+    const timeline = document.querySelector('.timeline-container');
+    const progressBar = document.getElementById('timeline-progress-bar');
+    const timelineBlocks = document.querySelectorAll('.timeline-block');
+    
+    if (timeline && progressBar) {
+        window.addEventListener('scroll', () => {
+            const rect = timeline.getBoundingClientRect();
+            const viewportHeight = window.innerHeight;
+            
+            const timelineTop = rect.top;
+            const timelineHeight = rect.height;
+            const triggerPoint = viewportHeight * 0.7; // Mid-bottom screen trigger coordinate
+            
+            if (timelineTop < triggerPoint) {
+                const scrolledDistance = triggerPoint - timelineTop;
+                const percent = Math.min(Math.max((scrolledDistance / timelineHeight) * 100, 0), 100);
+                progressBar.style.height = `${percent}%`;
+            } else {
+                progressBar.style.height = '0%';
+            }
+
+            // Programmatic Node Activation based on scroll position progress
+            timelineBlocks.forEach(block => {
+                const blockRect = block.getBoundingClientRect();
+                if (blockRect.top < triggerPoint) {
+                    block.classList.add('active-node');
+                } else {
+                    block.classList.remove('active-node');
+                }
+            });
+        }, { passive: true });
     }
 });

@@ -71,5 +71,10 @@ class AdvancedAnimationController {
     }
 }
 
-// Instantiate globally on compile window context
-window.Animations = new AdvancedAnimationController();
+// Instantiate and export for ES Module and Global access
+export const Animations = new AdvancedAnimationController();
+export { AdvancedAnimationController };
+if (typeof window !== 'undefined') {
+    window.Animations = Animations;
+}
+

@@ -58,5 +58,10 @@ class NavigationController {
     }
 }
 
-// Instantiate Globally for modular access
-window.Navigation = new NavigationController();
+// Instantiate and export for ES Module and Global access
+export const Navigation = new NavigationController();
+export { NavigationController };
+if (typeof window !== 'undefined') {
+    window.Navigation = Navigation;
+}
+

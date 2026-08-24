@@ -4,6 +4,10 @@
  * ==========================================================================
  */
 
+import './navigation.js';
+import './scroll.js';
+import './animation.js';
+
 document.addEventListener('DOMContentLoaded', () => {
     // Initializer log confirmation
     console.log('Shiv Shiv Sparkline Platform Foundations Initialized Successfully.');
@@ -240,4 +244,122 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }, { passive: true });
     }
+
+    // ==========================================================================
+    // Interactive Toast Notification System
+    // ==========================================================================
+    window.showToast = (message, type = 'success') => {
+        let container = document.getElementById('toast-container');
+        if (!container) {
+            container = document.createElement('div');
+            container.id = 'toast-container';
+            container.className = 'toast-container';
+            document.body.appendChild(container);
+        }
+
+        const toast = document.createElement('div');
+        toast.className = `toast toast-${type}`;
+        
+        const iconSvg = type === 'success' 
+            ? `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>`
+            : `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>`;
+
+        toast.innerHTML = `
+            <div class="toast-icon">${iconSvg}</div>
+            <div class="toast-message">${message}</div>
+        `;
+
+        container.appendChild(toast);
+
+        // Animate in
+        requestAnimationFrame(() => {
+            toast.classList.add('toast-show');
+        });
+
+        // Auto dismiss after 4 seconds
+        setTimeout(() => {
+            toast.classList.remove('toast-show');
+            setTimeout(() => toast.remove(), 400);
+        }, 4000);
+    };
+
+    // ==========================================================================
+    // Interactive Product Category Filter Tabs (products.html)
+    // ==========================================================================
+    const filterButtons = document.querySelectorAll('.product-filter-btn');
+    const productCards = document.querySelectorAll('.product-catalog-card');
+
+    if (filterButtons.length > 0 && productCards.length > 0) {
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetCategory = btn.getAttribute('data-filter');
+                
+                // Update active tab button state
+                filterButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                // Filter cards with smooth opacity/scaling
+                productCards.forEach(card => {
+                    const cardCategory = card.getAttribute('data-category');
+                    if (targetCategory === 'all' || cardCategory === targetCategory) {
+                        card.style.display = 'flex';
+                        requestAnimationFrame(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        });
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(8px)';
+                        setTimeout(() => {
+                            if (card.style.opacity === '0') {
+                                card.style.display = 'none';
+                            }
+                        }, 250);
+                    }
+                });
+            });
+        });
+    }
+
+    // ==========================================================================
+    // RFQ Contact Form Interactive Submission (contact.html)
+    // ==========================================================================
+    const rfqForm = document.getElementById('rfq-form');
+    if (rfqForm) {
+        rfqForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const submitBtn = rfqForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn ? submitBtn.innerHTML : 'Submit Inquiry';
+
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = `<span>Transmitting Request...</span>`;
+            }
+
+            // Simulate immediate client-side handling and toast confirmation
+            setTimeout(() => {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalText;
+                }
+                rfqForm.reset();
+                window.showToast('Thank you! Your quotation request has been received. Our team will contact you shortly.', 'success');
+            }, 800);
+        });
+    }
+
+    // ==========================================================================
+    // Global Newsletter Form Interactive Submission
+    // ==========================================================================
+    const newsletterForms = document.querySelectorAll('.newsletter-form');
+    newsletterForms.forEach(form => {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const input = form.querySelector('.newsletter-input');
+            if (input && input.value) {
+                input.value = '';
+                window.showToast('Thank you for subscribing to Shiv Shiv Sparkline procurement updates.', 'success');
+            }
+        });
+    });
 });

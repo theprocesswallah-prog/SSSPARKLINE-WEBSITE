@@ -35,4 +35,10 @@ class ScrollController {
     }
 }
 
-window.Scroll = new ScrollController();
+// Instantiate and export for ES Module and Global access
+export const Scroll = new ScrollController();
+export { ScrollController };
+if (typeof window !== 'undefined') {
+    window.Scroll = Scroll;
+}
+

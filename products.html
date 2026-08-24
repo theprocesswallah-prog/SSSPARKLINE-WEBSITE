@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explore products and solutions by Shiv Shiv Sparkline including power cables, connectors, solar solutions, and EPC infrastructure procurement.">
-    <title>Products | Shiv Shiv Sparkline</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="Explore certified electrical trading products, solar energy components, and EPC infrastructure materials from Shiv Shiv Sparkline.">
+    <title>Products & Materials | Shiv Shiv Sparkline</title>
+    <!-- Core Style Sheet Interface -->
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
 
-    <!-- Global Navigation Header Interface -->
-    <header class="global-header" id="global-header">
+    <!-- Global Navigation Header Interface (Permanent Solid White) -->
+    <header class="global-header static-header" id="global-header">
         <div class="nav-container">
             <a href="index.html" class="nav-logo" id="nav-logo" aria-label="Shiv Shiv Sparkline Home">
                 <span class="logo-text">Shiv Shiv Sparkline</span>
@@ -26,8 +27,8 @@
                             <div class="submenu-links">
                                 <a href="about.html#company-profile" class="submenu-link">Company Profile</a>
                                 <a href="about.html#founder" class="submenu-link">Founder</a>
-                                <a href="about.html#core-services" class="submenu-link">Core Services</a>
                                 <a href="about.html#vision-mission" class="submenu-link">Vision & Mission</a>
+                                <a href="about.html#core-services" class="submenu-link">Core Services</a>
                                 <a href="about.html#why-choose-us" class="submenu-link">Why Choose Us</a>
                                 <a href="about.html#certifications" class="submenu-link">Certifications</a>
                                 <a href="about.html#success-story" class="submenu-link">Success Story</a>
@@ -65,25 +66,391 @@
 
     <!-- Core Page Flow -->
     <main class="page-container">
-        <section class="section">
-            <div class="container animate-fade-up">
-                <h1 class="page-title">Products</h1>
-                <!-- Future Section: Trading Products -->
-                <!-- Future Section: Solar Solutions -->
-                <!-- Future Section: EPC Solutions -->
+
+        <!-- Subpage Hero Header Section -->
+        <section class="subpage-hero bg-dark-slate">
+            <div class="container">
+                <nav class="breadcrumb animate-fade-up">
+                    <a href="index.html" class="breadcrumb-link">Home</a>
+                    <span class="breadcrumb-separator">/</span>
+                    <span class="breadcrumb-current">Products & Materials</span>
+                </nav>
+                <div class="subpage-hero-content animate-fade-up">
+                    <span class="hero-category-tag">Procurement & Sourcing Portfolio</span>
+                    <h1 class="page-title text-white">Industrial Products & Material Catalog</h1>
+                    <p class="hero-intro-lead">Shiv Shiv Sparkline delivers certified power cables, conductors, high-voltage insulators, solar infrastructure materials, and turnkey EPC hardware built to exacting utility standards.</p>
+                </div>
             </div>
         </section>
+
+        <!-- Product Filter & Catalog Section -->
+        <section class="section-premium bg-dark-premium" id="product-catalog">
+            <div class="container">
+                
+                <!-- Category Filter Buttons -->
+                <div class="catalog-filter-bar animate-fade-up">
+                    <button class="product-filter-btn active" data-filter="all">All Products (12)</button>
+                    <button class="product-filter-btn" data-filter="electrical">Electrical Trading (6)</button>
+                    <button class="product-filter-btn" data-filter="solar">Solar Solutions (3)</button>
+                    <button class="product-filter-btn" data-filter="epc">EPC Infrastructure (3)</button>
+                </div>
+
+                <!-- Products Grid Container -->
+                <div class="products-catalog-grid">
+
+                    <!-- Product 1: Power Cables -->
+                    <div class="product-catalog-card animate-fade-up" data-category="electrical">
+                        <div class="product-card-header">
+                            <span class="product-badge">ELECTRICAL TRADING</span>
+                            <span class="product-code">CAT-01</span>
+                        </div>
+                        <div class="product-icon-box">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+                                <rect x="2" y="8" width="20" height="8" rx="2" />
+                                <path d="M6 12h12M2 12h2M20 12h2" />
+                            </svg>
+                        </div>
+                        <h3 class="product-card-title text-white">Power Cables (LT & HT)</h3>
+                        <p class="product-card-desc">Armoured and flexible multi-core power transmission cables engineered for heavy industrial distribution and utility grid infrastructure.</p>
+                        <div class="product-specs-list">
+                            <div class="spec-row"><span class="spec-label">Voltage Class:</span> <span class="spec-val">1.1 kV to 33 kV</span></div>
+                            <div class="spec-row"><span class="spec-label">Conductor:</span> <span class="spec-val">Aluminium / Copper (IS 8130)</span></div>
+                            <div class="spec-row"><span class="spec-label">Insulation:</span> <span class="spec-val">Cross-linked XLPE / Heavy PVC</span></div>
+                            <div class="spec-row"><span class="spec-label">Armouring:</span> <span class="spec-val">Galvanized Steel Strip / Wire</span></div>
+                        </div>
+                        <div class="product-card-footer">
+                            <a href="contact.html?product=Power+Cables" class="btn btn-card-rfq">Request Quote</a>
+                        </div>
+                    </div>
+
+                    <!-- Product 2: Connectors & Terminations -->
+                    <div class="product-catalog-card animate-fade-up" data-category="electrical">
+                        <div class="product-card-header">
+                            <span class="product-badge">ELECTRICAL TRADING</span>
+                            <span class="product-code">CAT-02</span>
+                        </div>
+                        <div class="product-icon-box">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+                                <path d="M10 14l-4 4M18 6l-4 4M14 10l3-3M7 17l3-3" />
+                                <rect x="9" y="9" width="6" height="6" rx="1" />
+                            </svg>
+                        </div>
+                        <h3 class="product-card-title text-white">Connectors & Terminations</h3>
+                        <p class="product-card-desc">Certified mechanical connectors, bimetallic compression lugs, and heat/cold shrinkable termination kits for high-voltage substations.</p>
+                        <div class="product-specs-list">
+                            <div class="spec-row"><span class="spec-label">Joint Type:</span> <span class="spec-val">Heat Shrink / Cold Shrink Kits</span></div>
+                            <div class="spec-row"><span class="spec-label">Material:</span> <span class="spec-val">High-Conductivity E-Copper / Aluminium</span></div>
+                            <div class="spec-row"><span class="spec-label">Hardware:</span> <span class="spec-val">Shear Bolt & Bimetallic Terminals</span></div>
+                            <div class="spec-row"><span class="spec-label">Rating:</span> <span class="spec-val">Up to 66 kV Certified</span></div>
+                        </div>
+                        <div class="product-card-footer">
+                            <a href="contact.html?product=Connectors+and+Terminations" class="btn btn-card-rfq">Request Quote</a>
+                        </div>
+                    </div>
+
+                    <!-- Product 3: Insulators -->
+                    <div class="product-catalog-card animate-fade-up" data-category="electrical">
+                        <div class="product-card-header">
+                            <span class="product-badge">ELECTRICAL TRADING</span>
+                            <span class="product-code">CAT-03</span>
+                        </div>
+                        <div class="product-icon-box">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+                                <path d="M6 6h12M4 11h16M4 16h16M12 2v20" />
+                            </svg>
+                        </div>
+                        <h3 class="product-card-title text-white">High-Voltage Insulators</h3>
+                        <p class="product-card-desc">Disc, Pin, Post, and Polymeric composite insulators manufactured to resist extreme environmental conditions, leakage, and electrical breakdown.</p>
+                        <div class="product-specs-list">
+                            <div class="spec-row"><span class="spec-label">Variants:</span> <span class="spec-val">Polymer Composite / Porcelain Disc & Pin</span></div>
+                            <div class="spec-row"><span class="spec-label">Voltage Range:</span> <span class="spec-val">11 kV to 400 kV Transmission</span></div>
+                            <div class="spec-row"><span class="spec-label">Mechanical Strength:</span> <span class="spec-val">45 kN to 160 kN E&M</span></div>
+                            <div class="spec-row"><span class="spec-label">Compliance:</span> <span class="spec-val">IEC 61109 / IS 731 Utility Spec</span></div>
+                        </div>
+                        <div class="product-card-footer">
+                            <a href="contact.html?product=HV+Insulators" class="btn btn-card-rfq">Request Quote</a>
+                        </div>
+                    </div>
+
+                    <!-- Product 4: Overhead Conductors -->
+                    <div class="product-catalog-card animate-fade-up" data-category="electrical">
+                        <div class="product-card-header">
+                            <span class="product-badge">ELECTRICAL TRADING</span>
+                            <span class="product-code">CAT-04</span>
+                        </div>
+                        <div class="product-icon-box">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+                                <path d="M12 2L4 22M12 2l8 20M4 12h16M2 17h20M12 2v20" />
+                            </svg>
+                        </div>
+                        <h3 class="product-card-title text-white">Overhead Conductors (ACSR/AAAC)</h3>
+                        <p class="product-card-desc">High-tensile aluminium conductors with galvanized steel reinforcement for urban distribution, rural electrification, and transmission corridors.</p>
+                        <div class="product-specs-list">
+                            <div class="spec-row"><span class="spec-label">Standard Types:</span> <span class="spec-val">Weasel, Rabbit, Dog, Panther, Zebra</span></div>
+                            <div class="spec-row"><span class="spec-label">Material Spec:</span> <span class="spec-val">EC Grade Aluminium & High Carbon Steel</span></div>
+                            <div class="spec-row"><span class="spec-label">Corrosion Guard:</span> <span class="spec-val">Class A / Class B Zinc Coating</span></div>
+                            <div class="spec-row"><span class="spec-label">Standard:</span> <span class="spec-val">IS 398 (Part 1, 2, 4) Certified</span></div>
+                        </div>
+                        <div class="product-card-footer">
+                            <a href="contact.html?product=Overhead+Conductors" class="btn btn-card-rfq">Request Quote</a>
+                        </div>
+                    </div>
+
+                    <!-- Product 5: Metering & VCBs -->
+                    <div class="product-catalog-card animate-fade-up" data-category="electrical">
+                        <div class="product-card-header">
+                            <span class="product-badge">ELECTRICAL TRADING</span>
+                            <span class="product-code">CAT-05</span>
+                        </div>
+                        <div class="product-icon-box">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+                                <rect x="3" y="3" width="18" height="18" rx="2" />
+                                <path d="M12 17a5 5 0 0 0 5-5M12 12l3-3" />
+                            </svg>
+                        </div>
+                        <h3 class="product-card-title text-white">Metering Solutions & VCBs</h3>
+                        <p class="product-card-desc">High-precision tri-vector energy meters, AMR communication modules, and Vacuum Circuit Breaker units for feeder and transformer protection.</p>
+                        <div class="product-specs-list">
+                            <div class="spec-row"><span class="spec-label">Meter Class:</span> <span class="spec-val">Class 0.2s / 0.5s Tri-Vector Smart</span></div>
+                            <div class="spec-row"><span class="spec-label">VCB Rating:</span> <span class="spec-val">11 kV / 33 kV up to 25kA 3-Sec</span></div>
+                            <div class="spec-row"><span class="spec-label">Interface:</span> <span class="spec-val">RS485 / GSM / GPRS Cloud Support</span></div>
+                            <div class="spec-row"><span class="spec-label">Compliance:</span> <span class="spec-val">IS 14697 / IS 13118 Utility Standard</span></div>
+                        </div>
+                        <div class="product-card-footer">
+                            <a href="contact.html?product=Metering+and+VCB" class="btn btn-card-rfq">Request Quote</a>
+                        </div>
+                    </div>
+
+                    <!-- Product 6: Meter Enclosure Boxes -->
+                    <div class="product-catalog-card animate-fade-up" data-category="electrical">
+                        <div class="product-card-header">
+                            <span class="product-badge">ELECTRICAL TRADING</span>
+                            <span class="product-code">CAT-06</span>
+                        </div>
+                        <div class="product-icon-box">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+                                <rect x="4" y="4" width="16" height="16" rx="2" />
+                                <rect x="8" y="7" width="8" height="5" rx="1" />
+                                <circle cx="12" cy="16" r="1.5" />
+                            </svg>
+                        </div>
+                        <h3 class="product-card-title text-white">SMC & Polycarbonate Meter Boxes</h3>
+                        <p class="product-card-desc">Fire-retardant, tamper-evident meter enclosures designed to safeguard residential, commercial, and DT metering instruments.</p>
+                        <div class="product-specs-list">
+                            <div class="spec-row"><span class="spec-label">Enclosure:</span> <span class="spec-val">High Impact Polycarbonate / SMC</span></div>
+                            <div class="spec-row"><span class="spec-label">Ingress Protection:</span> <span class="spec-val">IP 55 / IP 65 Weatherproof</span></div>
+                            <div class="spec-row"><span class="spec-label">Features:</span> <span class="spec-val">UV-Stabilized & Fire Retardant UL94-V0</span></div>
+                            <div class="spec-row"><span class="spec-label">Security:</span> <span class="spec-val">Anti-Tamper Sealing & Optical Port</span></div>
+                        </div>
+                        <div class="product-card-footer">
+                            <a href="contact.html?product=Meter+Enclosure+Boxes" class="btn btn-card-rfq">Request Quote</a>
+                        </div>
+                    </div>
+
+                    <!-- Product 7: Solar DC Cables -->
+                    <div class="product-catalog-card animate-fade-up" data-category="solar">
+                        <div class="product-card-header">
+                            <span class="product-badge">SOLAR SOLUTIONS</span>
+                            <span class="product-code">CAT-07</span>
+                        </div>
+                        <div class="product-icon-box">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+                                <circle cx="12" cy="12" r="5" />
+                                <path d="M12 1v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                            </svg>
+                        </div>
+                        <h3 class="product-card-title text-white">Solar Photovoltaic DC Cables</h3>
+                        <p class="product-card-desc">Electron-beam cross-linked solar DC cables resistant to extreme thermal variations, UV degradation, and mechanical stresses.</p>
+                        <div class="product-specs-list">
+                            <div class="spec-row"><span class="spec-label">Rated Voltage:</span> <span class="spec-val">1.5 kV DC (1800V DC Max)</span></div>
+                            <div class="spec-row"><span class="spec-label">Conductor:</span> <span class="spec-val">Tinned Flexible Copper (Class 5)</span></div>
+                            <div class="spec-row"><span class="spec-label">Insulation:</span> <span class="spec-val">Halogen-Free Cross-linked Polyolefin</span></div>
+                            <div class="spec-row"><span class="spec-label">Certification:</span> <span class="spec-val">EN 50618 (TÜV 2 Pfg 1169)</span></div>
+                        </div>
+                        <div class="product-card-footer">
+                            <a href="contact.html?product=Solar+DC+Cables" class="btn btn-card-rfq">Request Quote</a>
+                        </div>
+                    </div>
+
+                    <!-- Product 8: Solar MC4 & Junction Panels -->
+                    <div class="product-catalog-card animate-fade-up" data-category="solar">
+                        <div class="product-card-header">
+                            <span class="product-badge">SOLAR SOLUTIONS</span>
+                            <span class="product-code">CAT-08</span>
+                        </div>
+                        <div class="product-icon-box">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+                                <rect x="3" y="3" width="18" height="18" rx="2" />
+                                <line x1="3" y1="9" x2="21" y2="9" />
+                                <line x1="9" y1="21" x2="9" y2="9" />
+                            </svg>
+                        </div>
+                        <h3 class="product-card-title text-white">MC4 Connectors & AJB / DCDB</h3>
+                        <p class="product-card-desc">Array junction boxes, IP68 MC4 connectors, and DC distribution boards equipped with Type II surge protection devices (SPD).</p>
+                        <div class="product-specs-list">
+                            <div class="spec-row"><span class="spec-label">Connector Seal:</span> <span class="spec-val">IP68 Waterproof Snap-Lock</span></div>
+                            <div class="spec-row"><span class="spec-label">Protection:</span> <span class="spec-val">1000V/1500V DC Fuse & Surge Arresters</span></div>
+                            <div class="spec-row"><span class="spec-label">Enclosure:</span> <span class="spec-val">Thermoplastic IP65 Enclosure Box</span></div>
+                            <div class="spec-row"><span class="spec-label">Compatibility:</span> <span class="spec-val">All Commercial String Inverters</span></div>
+                        </div>
+                        <div class="product-card-footer">
+                            <a href="contact.html?product=Solar+MC4+and+Junction+Panels" class="btn btn-card-rfq">Request Quote</a>
+                        </div>
+                    </div>
+
+                    <!-- Product 9: Solar Mounting Hardware -->
+                    <div class="product-catalog-card animate-fade-up" data-category="solar">
+                        <div class="product-card-header">
+                            <span class="product-badge">SOLAR SOLUTIONS</span>
+                            <span class="product-code">CAT-09</span>
+                        </div>
+                        <div class="product-icon-box">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+                                <path d="M3 21h18M5 21V7l7-4 7 4v14M9 21V11M15 21V11" />
+                            </svg>
+                        </div>
+                        <h3 class="product-card-title text-white">Solar Module Mounting Hardware</h3>
+                        <p class="product-card-desc">Hot-dip galvanized strut channels, mid/end clamps, and pre-engineered rooftop framing components engineered for wind loads up to 170 km/h.</p>
+                        <div class="product-specs-list">
+                            <div class="spec-row"><span class="spec-label">Structure Metal:</span> <span class="spec-val">HDG Steel (80+ Micron) / AL 6005-T5</span></div>
+                            <div class="spec-row"><span class="spec-label">Fasteners:</span> <span class="spec-val">SS304 / SS316 Anti-Corrosion Bolts</span></div>
+                            <div class="spec-row"><span class="spec-label">Wind Resistance:</span> <span class="spec-val">Tested up to 170 km/h (IS 875 Part 3)</span></div>
+                            <div class="spec-row"><span class="spec-label">Application:</span> <span class="spec-val">RCC Roofs, Tin Sheds, Ground Racks</span></div>
+                        </div>
+                        <div class="product-card-footer">
+                            <a href="contact.html?product=Solar+Mounting+Hardware" class="btn btn-card-rfq">Request Quote</a>
+                        </div>
+                    </div>
+
+                    <!-- Product 10: Power Transformers -->
+                    <div class="product-catalog-card animate-fade-up" data-category="epc">
+                        <div class="product-card-header">
+                            <span class="product-badge">EPC INFRASTRUCTURE</span>
+                            <span class="product-code">CAT-10</span>
+                        </div>
+                        <div class="product-icon-box">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+                                <rect x="2" y="4" width="20" height="16" rx="2" />
+                                <circle cx="8" cy="12" r="3" />
+                                <circle cx="16" cy="12" r="3" />
+                            </svg>
+                        </div>
+                        <h3 class="product-card-title text-white">Power & Distribution Transformers</h3>
+                        <p class="product-card-desc">BEE Star-rated oil-immersed and dry-type cast resin transformers for commercial developments, renewable plants, and industrial substations.</p>
+                        <div class="product-specs-list">
+                            <div class="spec-row"><span class="spec-label">Capacity Range:</span> <span class="spec-val">25 kVA up to 5000 kVA</span></div>
+                            <div class="spec-row"><span class="spec-label">Voltage Ratio:</span> <span class="spec-val">11kV / 0.433kV, 33kV / 11kV</span></div>
+                            <div class="spec-row"><span class="spec-label">Cooling:</span> <span class="spec-val">ONAN / ONAF / AN Cast Resin</span></div>
+                            <div class="spec-row"><span class="spec-label">Efficiency:</span> <span class="spec-val">BEE Star 1/2/3 Loss Level Compliant</span></div>
+                        </div>
+                        <div class="product-card-footer">
+                            <a href="contact.html?product=Power+Transformers" class="btn btn-card-rfq">Request Quote</a>
+                        </div>
+                    </div>
+
+                    <!-- Product 11: Switchgear & Distribution Panels -->
+                    <div class="product-catalog-card animate-fade-up" data-category="epc">
+                        <div class="product-card-header">
+                            <span class="product-badge">EPC INFRASTRUCTURE</span>
+                            <span class="product-code">CAT-11</span>
+                        </div>
+                        <div class="product-icon-box">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+                                <rect x="3" y="3" width="18" height="18" rx="2" />
+                                <path d="M9 3v18M15 3v18M3 9h18M3 15h18" />
+                            </svg>
+                        </div>
+                        <h3 class="product-card-title text-white">LT Panels & Switchgear Assemblies</h3>
+                        <p class="product-card-desc">Custom-engineered Power Control Centers (PCC), Motor Control Centers (MCC), and Automatic Power Factor Correction (APFC) panels.</p>
+                        <div class="product-specs-list">
+                            <div class="spec-row"><span class="spec-label">Busbar Rating:</span> <span class="spec-val">Up to 4000A Aluminium / Copper</span></div>
+                            <div class="spec-row"><span class="spec-label">Short Circuit:</span> <span class="spec-val">50 kA for 1 sec Type Tested</span></div>
+                            <div class="spec-row"><span class="spec-label">Protection:</span> <span class="spec-val">IP 52 / IP 54 Form 3b/4b Modular</span></div>
+                            <div class="spec-row"><span class="spec-label">Breakers:</span> <span class="spec-val">Air Circuit Breakers (ACB) & MCCB</span></div>
+                        </div>
+                        <div class="product-card-footer">
+                            <a href="contact.html?product=LT+Panels+and+Switchgear" class="btn btn-card-rfq">Request Quote</a>
+                        </div>
+                    </div>
+
+                    <!-- Product 12: Earthing & Lightning Protection -->
+                    <div class="product-catalog-card animate-fade-up" data-category="epc">
+                        <div class="product-card-header">
+                            <span class="product-badge">EPC INFRASTRUCTURE</span>
+                            <span class="product-code">CAT-12</span>
+                        </div>
+                        <div class="product-icon-box">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+                                <path d="M12 2v10M6 12h12M8 16h8M10 20h4" />
+                            </svg>
+                        </div>
+                        <h3 class="product-card-title text-white">Earthing & Lightning Protection</h3>
+                        <p class="product-card-desc">Chemical copper-bonded earth rods, maintenance-free earthing compound, and early streamer emission (ESE) lightning protection systems.</p>
+                        <div class="product-specs-list">
+                            <div class="spec-row"><span class="spec-label">Earth Rods:</span> <span class="spec-val">Copper Bonded Steel (250+ Micron)</span></div>
+                            <div class="spec-row"><span class="spec-label">Compound:</span> <span class="spec-val">Carbonaceous Moisture-Retaining Mineral</span></div>
+                            <div class="spec-row"><span class="spec-label">Lightning Terminal:</span> <span class="spec-val">ESE Active Arrester / Conventional Copper</span></div>
+                            <div class="spec-row"><span class="spec-label">Standard:</span> <span class="spec-val">IEEE 80 / IS 3043 / NFC 17-102</span></div>
+                        </div>
+                        <div class="product-card-footer">
+                            <a href="contact.html?product=Earthing+and+Lightning+Protection" class="btn btn-card-rfq">Request Quote</a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Product Quality Assurance Guarantee -->
+                <div class="assurance-banner animate-fade-up">
+                    <div class="assurance-icon-col">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        </svg>
+                    </div>
+                    <div class="assurance-text-col">
+                        <h4 class="assurance-title text-white">100% Quality Inspected & Type-Tested Sourcing</h4>
+                        <p class="assurance-desc text-white-60">All materials supplied by Shiv Shiv Sparkline are sourced directly from certified manufacturing partners, accompanied by manufacturer test certificates (MTC) and routine inspection documentation compliant with Indian Standards (IS) and IEC specifications.</p>
+                    </div>
+                    <div class="assurance-action-col">
+                        <a href="contact.html" class="btn btn-primary">Inquire for Tender BOQ</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Product Request for Quote Banner CTA -->
+        <section class="section-premium bg-dark-slate">
+            <div class="container">
+                <div class="storytelling-cta-card animate-fade-up">
+                    <span class="cta-mini-tag">Direct Procurement</span>
+                    <h2 class="cta-large-title text-white">Need a Customized Material Quotation?</h2>
+                    <p class="cta-large-desc text-white-60">Upload or submit your Bill of Quantities (BOQ) for electrical trading supplies, solar infrastructure, or project tenders across Rajasthan.</p>
+                    <a href="contact.html" class="btn btn-primary">Request Formal Quote</a>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <!-- Global Footer Interface -->
     <footer class="global-footer">
         <div class="container footer-grid">
-            <div class="footer-brand">
-                <span class="footer-logo">Shiv Shiv Sparkline</span>
-                <p class="footer-tagline">Quality materials and professional support for power, infrastructure, and modern solar projects.</p>
+            <!-- Brand Section -->
+            <div class="footer-brand-col">
+                <span class="footer-logo-text">Shiv Shiv Sparkline</span>
+                <p class="footer-tagline-text">Providing certified power trading, procurement solutions, and prompt supply services designed to meet evolving industrial demands.</p>
+                <div class="footer-social-row">
+                    <a href="#" class="footer-social-icon" aria-label="LinkedIn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                </div>
             </div>
+            
+            <!-- Quick Links -->
             <div class="footer-nav-col">
-                <span class="footer-heading">Navigation</span>
+                <span class="footer-heading">Company</span>
                 <ul class="footer-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
@@ -92,20 +459,62 @@
                     <li><a href="contact.html">Reach Us</a></li>
                 </ul>
             </div>
-            <div class="footer-contact-col">
-                <span class="footer-heading">Operational Coverage</span>
-                <p class="footer-meta-text">Providing reliable trading, procurement solutions, and prompt supply services across Rajasthan.</p>
+            
+            <!-- Products -->
+            <div class="footer-nav-col">
+                <span class="footer-heading">Products</span>
+                <ul class="footer-links">
+                    <li><a href="products.html">Power Cables</a></li>
+                    <li><a href="products.html">Connectors</a></li>
+                    <li><a href="products.html">Insulators</a></li>
+                    <li><a href="products.html">Conductors</a></li>
+                    <li><a href="products.html">Metering Solutions</a></li>
+                </ul>
+            </div>
+            
+            <!-- Solutions -->
+            <div class="footer-nav-col">
+                <span class="footer-heading">Solutions</span>
+                <ul class="footer-links">
+                    <li><a href="about.html#core-services">Electrical Trading</a></li>
+                    <li><a href="about.html#core-services">Solar Solutions</a></li>
+                    <li><a href="about.html#core-services">EPC Procurement</a></li>
+                    <li><a href="about.html#core-services">Supply Network</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="footer-nav-col">
+                <span class="footer-heading">Contact Us</span>
+                <ul class="footer-links">
+                    <li class="contact-meta-item">Rajasthan Distribution Area</li>
+                    <li class="contact-meta-item">Email: <span class="placeholder-text">[Email Placeholder]</span></li>
+                    <li class="contact-meta-item">Phone: <span class="placeholder-text">[Phone Placeholder]</span></li>
+                </ul>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="footer-nav-col">
+                <span class="footer-heading">Subscribe</span>
+                <p class="newsletter-desc">Stay updated on our latest procurement additions and grid engineering systems.</p>
+                <form class="newsletter-form" onsubmit="event.preventDefault();">
+                    <input type="email" placeholder="Corporate email" aria-label="Corporate email" class="newsletter-input" required>
+                    <button type="submit" class="btn btn-newsletter-submit" aria-label="Submit">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </button>
+                </form>
             </div>
         </div>
+        
         <div class="container footer-bottom">
             <p class="copyright-text">&copy; 2026 Shiv Shiv Sparkline. All rights reserved.</p>
         </div>
     </footer>
 
     <!-- Core Modular System Scripts -->
-    <script src="js/navigation.js"></script>
-    <script src="js/scroll.js"></script>
-    <script src="js/animation.js"></script>
-    <script src="js/main.js"></script>
+    <script type="module" src="./js/main.js"></script>
 </body>
 </html>
